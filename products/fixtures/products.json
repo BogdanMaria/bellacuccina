@@ -1,0 +1,54 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "A123",
+            "name": "Cherry Tomatoes",
+            "description":"Fresh cherry tomatoes",
+            "price": 5.50,
+            "image_url": "",
+            "image": "cherry.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "item_no": "A683",
+            "name": "Bigoli Pasta",
+            "description":"very good thing",
+            "price": 15.00,
+            "image_url": "",
+            "image": "bigoli.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "A243",
+            "name": "Prosciutto Crudo",
+            "description":"very good thing ooooooo",
+            "price": 25.00,
+            "image_url": "",
+            "image": "prosciutto.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "item_no": "A943",
+            "name": "Farfalle Pasta",
+            "description":"very baad thing ooooooo",
+            "price": 13.00,
+            "image_url": "",
+            "image": "farfalle.jpg"
+        }
+    }
+]
