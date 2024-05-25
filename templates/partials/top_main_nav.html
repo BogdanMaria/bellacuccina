@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="##{% url 'home:home' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="{% url 'products:store_products' %}">Products</a>
@@ -35,10 +35,10 @@
                         Categories
                     </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta">Pasta</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Fresh Produce">Fresh Produce</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Cured Meats">Cured Meats</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All Categories</a></li>
                 </ul>
                 <li class="nav-item">
                     <a class="nav-link">Disabled</a>
@@ -63,7 +63,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <form class="d-flex " method="GET">
+        <form class="d-flex " method="GET" action="{% url 'products:store_products' %}">
             <div class="input-group">
                 <input class="form-control" type="search" name='q' placeholder="Search" aria-label="Search">
                 <button class="btn" type="submit"><i class="bi bi-search"></i></button>
