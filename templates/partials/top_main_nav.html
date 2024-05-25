@@ -22,14 +22,15 @@
                 </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Products
+                        All Products
                     </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}">All products</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=price&direction=asc">By Price</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=weight&direction=desc">By Weight</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=category&direction=asc">By Category</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}">All Products</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categories
@@ -41,7 +42,7 @@
                     <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All Categories</a></li>
                 </ul>
                 <li class="nav-item">
-                    <a class="nav-link">Disabled</a>
+                    <a class="nav-link">About</a>
                 </li>
             </ul>
             <div class="d-none d-lg-flex flex-row w-auto">
@@ -85,21 +86,29 @@
     <div class="offcanvas-body">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Products
+                    All Products
                 </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'products:store_products' %}">All Products</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=price&direction=asc">By Price</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=weight&direction=desc">By Weight</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=category&direction=asc">By Category</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}">All Products</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta">Pasta</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Fresh Produce">Fresh Produce</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Cured Meats">Cured Meats</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All Categories</a></li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link ">Disabled</a>
