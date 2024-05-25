@@ -8,6 +8,7 @@
             "name": "Cherry Tomatoes",
             "description":"Fresh cherry tomatoes",
             "price": 5.50,
+            "weight":150,
             "image_url": "",
             "image": "cherry.jpg"
         }
@@ -21,6 +22,7 @@
             "name": "Bigoli Pasta",
             "description":"very good thing",
             "price": 15.00,
+            "weight": 500,
             "image_url": "",
             "image": "bigoli.jpg"
         }
@@ -34,6 +36,7 @@
             "name": "Prosciutto Crudo",
             "description":"very good thing ooooooo",
             "price": 25.00,
+            "weight": 175,
             "image_url": "",
             "image": "prosciutto.jpg"
         }
@@ -47,6 +50,7 @@
             "name": "Farfalle Pasta",
             "description":"very baad thing ooooooo",
             "price": 13.00,
+            "weight": 500,
             "image_url": "",
             "image": "farfalle.jpg"
         }
