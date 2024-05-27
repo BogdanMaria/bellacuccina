@@ -28,11 +28,12 @@
                 <p class="lead mb-0 text-left font-weight-bold">{{ product.price }} $</p>
                 <p class="mt-3"> Weight: {{ product.weight}} grams</p>
                 {% if product.category %}
-                <p class="small mt-1 mb-0">
-                    <a class="text-dark" href="">
+                <div>
+                    <a class="text-dark text-decoration-none" href="{% url 'products:store_products' %}?category={{ product.category.name }}">
                         {{ product.category.name }}
                     </a>
-                </p>
+                </div>
+                {% else %}
                 {% endif %}
 
                     <small class="text-muted"><i class="fas fa-star mr-1"></i>rating / 5</small>
