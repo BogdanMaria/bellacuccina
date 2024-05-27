@@ -104,7 +104,7 @@ $('#addToCartBtn').on('click', function(){
             _addBtn.attr('disabled',true);
         },
         success:function(res){
-            $('.cart-total').text(res.totalitems);
+            $('.cart-total').text(res.total_items);
             _addBtn.attr('disabled',false);
         }
     });
