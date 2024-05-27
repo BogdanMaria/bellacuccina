@@ -84,6 +84,20 @@ $('#addToCartBtn').on('click', function(){
     var _productImage = $('.product-image').val();
     var _productPrice = $('.product-price').val();
     console.log(_productPrice);
+    if (_qty > 10 || _qty <= 0) {
+        // code taken from https://djangocentral.com/django-ajax-with-jquery/
+        // $('#addToCartBtn').addClass('active')
+        _addBtn.removeClass('active').blur();
+        $('.product-qty').removeClass('is-valid').addClass('is-invalid');
+        $('.product-qty').blur();
+        $('#Error').remove()
+        $('.error-qty').before('<div class="invalid-feedback d-block" id="Error">quantity must be range 1 -10!</div>');
+
+        return
+
+
+    }
+
 
     // Ajax
     $.ajax({
@@ -105,9 +119,10 @@ $('#addToCartBtn').on('click', function(){
         },
         success:function(res){
             $('.cart-total').text(res.total_items);
+            $('.product-qty').removeClass('is-invalid')
+            $('#Error').remove()
             _addBtn.attr('disabled',false);
         }
     });
-    // End
 
 })
