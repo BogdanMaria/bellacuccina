@@ -24,18 +24,24 @@
                                     {% if cart_items %}
 
                                     {% for product_id,product in cart_data.items %}
+                                    <!--
+                                    <div class="col d-flex justify-content-end">
+                                        <a class="update-link text-success">Update</a>
+                                        <a  class="remove-item text-danger" id="remove_{{ product_id }}" >Remove</a>
+                                    </div> -->
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-3 col-xl-3">
+                                            <div class="col text-muted">$ {{ product.price }}</div>
                                             <img src="{{ product.image }}"
                                                 class="img-fluid rounded-3" alt="Cotton T-shirt">
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <small class="text-black"></small>
-                                            <h6 class="text-black mb-0">{{ product.name }} {{ product.id }}</h6>
+                                            <h6 class="text-black mb-0">{{ product.name }}</h6>
                                         </div>
 
-                                        <div class="col-md-3 col-lg-3 col-xl-3 col-sm-6 d-flex">
-                                            <form action="" method="POST" class="w-100 cart-form">
+                                        <div class="col-md-3 col-lg-3 col-xl-3 col-sm-6 d-flex justify-content-center">
+                                            <form id="{{ product_id }}" action="{% url 'shopping_cart:update_cart' product_id %}" method="POST" class="w-100 update-form">
                                                 {% csrf_token %}
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
@@ -46,9 +52,10 @@
                                                             </span>
                                                         </button>
                                                     </div>
+                                                    <div class="error-qrt"></div>
                                                     <input class="form-control qty_input" type="number"
                                                         name="quantity" value="{{product.qty}}" min="1" max="5"
-                                                        data-item_id="{{ product.id }}"
+                                                        data-item_id="{{ product_id }}"
                                                         id="id_qty_{{ product_id }}">
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-success rounded-0"
@@ -62,12 +69,12 @@
                                             </form>
                                         </div>
 
-                                        <div class="col-md-3 col-lg-2 col-xl-2 d-flex justify-content-between align-items-center p-0">
+                                        <div class="col-md-3 col-lg-2 col-xl-2 d-flex justify-content-center align-items-center p-0">
                                             <h6 class="mb-0">{{ product.price }}</h6>
-                                            <div>
-                                                <a href="#" class="update-link text-success">Update</a>
-                                                <a href="#" class="remove-item text-danger" id="remove_{{ product_id }}" >Remove</a>
-                                            </div>
+                                        </div>
+                                        <div class="col d-flex justify-content-end">
+                                            <a class="update-link text-success" id="{{product_id}}">Update</a>
+                                            <a  class="remove-item text-danger mx-2" id="remove_{{ product_id }}" >Remove</a>
                                         </div>
                                         <!-- <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                             <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
@@ -133,6 +140,7 @@
 {{ block.super }}
 
 {% include 'partials/quantity_input_script.html' %}
+{% include 'partials/cart_crud_script.html' %}
 
 {% endblock %}
 

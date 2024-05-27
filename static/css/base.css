@@ -104,7 +104,9 @@ html{
   right: 10px;
 }
 
-.back-to-top {
+.back-to-top,
+.update-link,
+.remove-item {
   cursor: pointer;
 }
 
