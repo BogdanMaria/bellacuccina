@@ -73,7 +73,7 @@
                                             <h6 class="mb-0">{{ product.price }}</h6>
                                         </div>
                                         <div class="col d-flex justify-content-end">
-                                            <a class="update-link text-success" id="{{product_id}}">Update</a>
+                                            <a class="update-link" href="#!" target="{{product_id}}">Update</a>
                                             <a  class="remove-item text-danger mx-2" id="remove_{{ product_id }}" >Remove</a>
                                         </div>
                                         <!-- <div class="col-md-1 col-lg-1 col-xl-1 text-end">
@@ -109,8 +109,8 @@
                                         <h5>$ {{ total|floatformat:2 }}</h5>
                                     </div>
 
-                                    <button type="button" class="btn btn-dark btn-block btn-lg"
-                                        data-mdb-ripple-color="dark">Checkout</button>
+                                    <a href="{% url 'checkout:store_checkout' %}" class="btn btn-dark btn-block btn-lg"
+                                        data-mdb-ripple-color="dark">Checkout</a>
 
                                 </div>
                             </div>

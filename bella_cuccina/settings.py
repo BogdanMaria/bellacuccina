@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'home',
     'products',
     'shopping_cart',
-    'checkout'
+    'checkout',
+
+    'crispy_forms',
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'bella_cuccina.urls'
@@ -78,6 +82,11 @@ TEMPLATES = [
                 'shopping_cart.context.cart_content',
                 'shopping_cart.context.my_cart',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ],
+
         },
     },
 ]
