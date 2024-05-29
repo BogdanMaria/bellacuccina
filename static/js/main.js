@@ -20,23 +20,6 @@ $('#sort-selector').change(function() {
     }
 })
 
-// back to top button
-
-// When the user scrolls down 300px from the top of the document, show the button
-// window.onscroll = function () {
-//     scrollFunction();
-//   };
-
-//   function scrollFunction() {
-//     if (
-//       document.body.scrollTop > 150 ||
-//       document.documentElement.scrollTop > 150
-//     ) {
-//       $(".btt").fadeIn(700);
-//     } else {
-//       $(".btt").fadeOut(700);
-//     }
-// }
 
 $('.back-to-top').click(function(e) {
     window.scrollTo(0,0)
@@ -76,7 +59,18 @@ $('.back-to-top').click(function(e) {
 //     // End
 
 // })
-let count = 0
+function updateCartTotal() {
+    $.ajax({
+        url: '/get_cart_total/',
+        dataType: 'json',
+        success: function (res) {
+            $('.cart-total').text(res.total_items);
+
+
+        }
+    });
+}
+
 $('#addToCartBtn').on('click', function(){
     var _addBtn = $(this);
     var _qty = $('.product-qty').val();
@@ -85,7 +79,7 @@ $('#addToCartBtn').on('click', function(){
     var _productImage = $('.product-image').val();
     var _productPrice = $('.product-price').val();
     console.log(_productPrice);
-    console.log(_msg);
+
     if (_qty > 10 || _qty <= 0) {
         // code taken from https://djangocentral.com/django-ajax-with-jquery/
         // $('#addToCartBtn').addClass('active')
@@ -120,49 +114,13 @@ $('#addToCartBtn').on('click', function(){
             _addBtn.attr('disabled',true);
         },
         success:function(res){
+            updateCartTotal()
             console.log(res.data);
             $('.product-qty').removeClass('is-invalid')
             $('#Error').remove()
             $('.product-qty').val(1)
-            // location.reload()
-            // $('.msg-success').removeClass('d-none')
-            // $('#reboot').on('click', function(){
-            //     $('.msg-success').addClass('d-none')
 
-            // })
-
-
-
-// working
-            // initialize the count variable
-            // let count = 0;
-
-            // iterate through the nested dictionary
-            // for (const key in res.data) {
-            // if (res.data.hasOwnProperty(key)) {
-            //     count += res.data[key]['qty'];
-            //     }
-            // }
-
-         // inject the count to the template
-            // $('.items-num').text(count);
-
-// working
-        // let count = 0;
-
-        // Get array of keys from res.data object
-        // const keys = Object.keys(res.data);
-
-        // Iterate through the keys array
-        // for (const key of keys) {
-        // count += res.data[key]['qty'];
-        // }
-
-        // Inject the count to the template
-        // $('.items-num').text(count);
-            
             _addBtn.attr('disabled',false);
-            // console.log(res.message);
         }
     });
 

@@ -2,6 +2,7 @@ from django.shortcuts import (render, redirect,
                               reverse, HttpResponse, get_object_or_404)
 from django.contrib import messages
 from django.http import JsonResponse
+import math
 
 from products.models import Product
 
@@ -48,7 +49,7 @@ def add_to_cart(request):
         'name': request.POST['name'],
         'image': request.POST['image'],
         'qty': int(request.POST['qty']),
-        'price': request.POST['price'],
+        'price': float(request.POST['price']),
     }
     message = ''
     items = 0
@@ -59,13 +60,13 @@ def add_to_cart(request):
             cart_data[str(request.POST['id'])]['qty'] += int(request.POST['qty'])
             cart_data.update(cart_data)
             request.session['cart'] = cart_data
-            
+
         else:
             cart_data = request.session['cart']
             cart_data.update(cart_item)
             request.session['cart'] = cart_data
             print(cart_data)
-        message = f'{cart_item[str(request.POST["id"])]["name"]} added to cart'
+        # message = f'{cart_item[str(request.POST["id"])]["name"]} added to cart'
 
     else:
         request.session['cart'] = cart_item
@@ -76,12 +77,27 @@ def add_to_cart(request):
     #                     'total_items': len(request.session['cart']),
     #                      'message': message})
     print(request.session['cart'])
-    all_items = sum(item['qty'] for item in request.session['cart'].values())
+    # all_items = sum(item['qty'] for item in request.session['cart'].values())
     response_data = {'data': request.session['cart'],
                      'total_items': len(request.session['cart']),
-                     'all_items': all_items}
+                     }
     return JsonResponse(response_data)
     
+
+def get_cart_total(request):
+    total = 0
+    total_price = 0
+    if 'cart' in request.session:
+        total_items = sum(item['qty'] for item in request.session['cart'].values())
+        # total_price = request.POST.get('total')
+        # total = [item['price'] for item in request.session['cart'].values()]
+        # for item in total:
+        #     total_price += item
+    else:
+        total_items = 0
+
+    return JsonResponse({'total_items': total_items})
+
 
 
 def update_cart(request, product_id):
