@@ -169,3 +169,9 @@ Price ,rating, and alphabet ||
 
 
 ### Wireframes
+
+<details><summary>images</summary>
+
+<details><summary>Home page</summary>
+  <img src="docs/wireframes/home_page.png" >
+</details>

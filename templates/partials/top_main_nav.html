@@ -11,7 +11,7 @@
             <!-- <button type="button" class="btn"><i class="bi bi-cart3"></i></button> -->
             <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
                 <i class="bi bi-cart3"></i>
-                <span class="cart-total"> {{ request.session.cart|length }}</span>
+                <span class="cart-total"> {{ current_cart }}</span>
                 <span class="total-amount"></span>
             </a>
         </div>
@@ -52,10 +52,15 @@
             </ul>
             <div class="d-none d-lg-flex flex-row w-auto">
                 <button type="button" class="btn"><i class="bi bi-suit-heart"></i></button>
-                    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right"><i class="bi bi-search" style="font-size:1rem; -webkit-text-stroke-width: 1px;"></i></button>
-                    <button type="button" class="btn" ><i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
+                    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right">
+                        <i class="bi bi-search" style="font-size:1rem; -webkit-text-stroke-width: 1px;"></i>
+                    </button>
+                    <button type="button" class="btn" ><i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i>
+                    </button>
                     <!-- <button type="button" class="btn"><i class="bi bi-cart3"></i></button> -->
-                    <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}"><i class="bi bi-cart3"></i><span class="cart-total">{{ request.session.cart|length }}</span></a>
+                    <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
+                        <i class="bi bi-cart3"></i><span class="cart-total">{{ current_cart }}</span>
+                    </a>
             </div>
         </div>
    </div>
