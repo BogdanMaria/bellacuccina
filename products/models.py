@@ -27,7 +27,7 @@ def random_generated_string():
     not_unique = True
     while not_unique:
         key = random.choice(string.ascii_uppercase) + str(random.randrange(100,999))
-        if not Product.object.filter(item_no=key):
+        if not Product.objects.filter(item_no=key):
             not_unique = False
     return str(key)
 

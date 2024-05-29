@@ -76,9 +76,6 @@ def store_checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # print(current_cart)
-        print(stripe_total)
-        # print(stripe.api_key)
         order_form = OrderForm()
 
     if not stripe_public_key:
