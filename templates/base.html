@@ -94,7 +94,12 @@
       //     });
       // });
       
-          </script>
+      $('.account-body').on('scroll', function() {
+        if ($(this).scrollLeft() > 0) {
+            console.log('Horizontal scrolling detected');
+        }
+      });
+      </script>
     {% endblock %}
   </body>
 </html>

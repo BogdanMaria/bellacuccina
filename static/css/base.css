@@ -10,6 +10,17 @@ html{
 
 }
 
+/* allauth templates */
+.account-body{
+
+  height: 100vh;
+
+
+ }
+
+
+/*   end allauth    */
+
 /* carousel */
 /* Declare heights because of positioning of img element */
 .carousel-title{
