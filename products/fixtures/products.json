@@ -3,14 +3,14 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
-            "category": 2,
-            "item_no": "A123",
-            "name": "Cherry Tomatoes",
-            "description":"Fresh cherry tomatoes",
-            "price": 5.50,
-            "weight":150,
+            "category": 1,
+            "item_no": "P001",
+            "name": "Spaghetti",
+            "description": "Classic Italian spaghetti made from durum wheat.",
+            "price": 3.50,
+            "weight": 500,
             "image_url": "",
-            "image": "cherry.jpg"
+            "image": "spaghetti.jpg"
         }
     },
     {
@@ -18,38 +18,276 @@
         "model": "products.product",
         "fields": {
             "category": 1,
-            "item_no": "A683",
-            "name": "Bigoli Pasta",
-            "description":"very good thing",
-            "price": 15.00,
+            "item_no": "P002",
+            "name": "Penne Rigate",
+            "description": "Penne pasta with ridges to hold more sauce.",
+            "price": 4.00,
             "weight": 500,
             "image_url": "",
-            "image": "bigoli.jpg"
+            "image": "penne_rigate.jpg"
         }
     },
     {
         "pk": 3,
         "model": "products.product",
         "fields": {
-            "category": 3,
-            "item_no": "A243",
-            "name": "Prosciutto Crudo",
-            "description":"very good thing ooooooo",
-            "price": 25.00,
-            "weight": 175,
+            "category": 1,
+            "item_no": "P003",
+            "name": "Linguine",
+            "description": "Long, flat pasta perfect for seafood dishes.",
+            "price": 3.75,
+            "weight": 500,
             "image_url": "",
-            "image": "prosciutto.jpg"
+            "image": "linguine.jpg"
         }
     },
     {
         "pk": 4,
         "model": "products.product",
         "fields": {
+            "category": 3,
+            "item_no": "C001",
+            "name": "Salami Milano",
+            "description": "Fine-grained pork salami from Milan.",
+            "price": 8.00,
+            "weight": 200,
+            "image_url": "",
+            "image": "salami_milano.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "C002",
+            "name": "Mortadella",
+            "description": "Classic Italian cold cut with a delicate flavor.",
+            "price": 7.50,
+            "weight": 250,
+            "image_url": "",
+            "image": "mortadella.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "C003",
+            "name": "Bresaola",
+            "description": "Air-dried, salted beef from Valtellina.",
+            "price": 10.00,
+            "weight": 150,
+            "image_url": "",
+            "image": "bresaola.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "F001",
+            "name": "Cherry Tomatoes",
+            "description": "Fresh cherry tomatoes.",
+            "price": 5.50,
+            "weight": 150,
+            "image_url": "",
+            "image": "cherry_tomatoes.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "F002",
+            "name": "Arugula",
+            "description": "Fresh and peppery arugula.",
+            "price": 4.00,
+            "weight": 100,
+            "image_url": "",
+            "image": "arugula.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "F003",
+            "name": "Zucchini",
+            "description": "Fresh organic zucchini.",
+            "price": 3.00,
+            "weight": 200,
+            "image_url": "",
+            "image": "zucchini.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
             "category": 1,
-            "item_no": "A943",
-            "name": "Farfalle Pasta",
-            "description":"very baad thing ooooooo",
-            "price": 13.00,
+            "item_no": "P004",
+            "name": "Fusilli",
+            "description": "Spiral-shaped pasta ideal for hearty sauces.",
+            "price": 3.80,
+            "weight": 500,
+            "image_url": "",
+            "image": "fusilli.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "item_no": "P005",
+            "name": "Tagliatelle",
+            "description": "Flat ribbon pasta, great for Bolognese sauce.",
+            "price": 4.20,
+            "weight": 500,
+            "image_url": "",
+            "image": "tagliatelle.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "C004",
+            "name": "Prosciutto Crudo",
+            "description": "Dry-cured Italian ham, thinly sliced.",
+            "price": 12.00,
+            "weight": 200,
+            "image_url": "",
+            "image": "prosciutto_crudo.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "C005",
+            "name": "Pancetta",
+            "description": "Italian bacon made from pork belly.",
+            "price": 9.00,
+            "weight": 150,
+            "image_url": "",
+            "image": "pancetta.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "C006",
+            "name": "Coppa",
+            "description": "Cured pork shoulder or neck, dry-cured.",
+            "price": 11.00,
+            "weight": 180,
+            "image_url": "",
+            "image": "coppa.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "F004",
+            "name": "Bell Peppers",
+            "description": "Fresh, colorful bell peppers.",
+            "price": 3.50,
+            "weight": 250,
+            "image_url": "",
+            "image": "bell_peppers.jpg"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "F005",
+            "name": "Basil",
+            "description": "Fresh basil leaves, perfect for pesto.",
+            "price": 2.50,
+            "weight": 50,
+            "image_url": "",
+            "image": "basil.jpg"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "category": 2,
+            "item_no": "F006",
+            "name": "Eggplant",
+            "description": "Fresh organic eggplant.",
+            "price": 4.00,
+            "weight": 300,
+            "image_url": "",
+            "image": "eggplant.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "item_no": "P006",
+            "name": "Orecchiette",
+            "description": "Ear-shaped pasta from Puglia.",
+            "price": 4.50,
+            "weight": 500,
+            "image_url": "",
+            "image": "orecchiette.jpg"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "category": 3,
+            "item_no": "C007",
+            "name": "Speck",
+            "description": "Smoked, dry-cured ham from the Alps.",
+            "price": 10.00,
+            "weight": 200,
+            "image_url": "",
+            "image": "speck.jpg"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "item_no": "P007",
+            "name": "Rigatoni",
+            "description": "Large, ridged pasta tubes perfect for chunky sauces.",
+            "price": 4.00,
+            "weight": 500,
+            "image_url": "",
+            "image": "rigatoni.jpg"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "category": 1,
+            "item_no": "P008",
+            "name": "Farfalle",
+            "description": "Bow-tie shaped pasta, great for salads.",
+            "price": 3.90,
             "weight": 500,
             "image_url": "",
             "image": "farfalle.jpg"
