@@ -1,16 +1,26 @@
 <!-- Main navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-left">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <img src="{{ MEDIA_URL }}logo.png" alt="" class="my_logo img-fluid">
+            <img src="{{ MEDIA_URL }}logo.png" alt="" class="my-logo img-fluid">
         </a>
         <div class="d-flex d-lg-none" >
-            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right"><i class="bi bi-search"></i></button>
-            <button type="button" class="btn" ><i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
-            <!-- <button type="button" class="btn"><i class="bi bi-cart3"></i></button> -->
+            <div class="dropdown">
+                <button type="button" id="dropdownProfile1" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
+
+            <ul class="dropdown-menu " aria-labelledby="dropdownProfile1">
+                <li><a class="dropdown-item " href="{% url 'customer_profile:profile' %}" type="button" >
+                    Profile</a></li>
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Register</a></li>
+                <li><a class="dropdown-item " href="#">Shop management</a></li>
+            </ul>
+      </div>
+      <button class="btn"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right"><i class="bi bi-search"></i></button>
             <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
                 <i class="bi bi-cart3"></i>
                 <span class="cart-total"> {{ all_items }}</span>
@@ -54,16 +64,29 @@
             </ul>
             <div class="d-none d-lg-flex flex-row w-auto">
                 <button type="button" class="btn"><i class="bi bi-suit-heart"></i></button>
-                    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right">
-                        <i class="bi bi-search" style="font-size:1rem; -webkit-text-stroke-width: 1px;"></i>
-                    </button>
-                    <button type="button" class="btn" ><i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i>
-                    </button>
-                    <!-- <button type="button" class="btn"><i class="bi bi-cart3"></i></button> -->
-                    <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
-                        <i class="bi bi-cart3"></i><span class="cart-total">{{ all_items }}</span>
-                    </a>
-                    <span class="total-price"></span>
+                <div class="dropdown">
+
+                    <button type="button" id="dropdownProfile2" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
+
+                <ul class="dropdown-menu " aria-labelledby="dropdownProfile2">
+                    <li><a class="dropdown-item " href="{% url 'customer_profile:profile' %}" type="button" >
+                        Profile</a></li>
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Register</a></li>
+                <li><a class="dropdown-item " href="#">Shop management</a></li>
+
+                </ul>
+          </div>
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right">
+                    <i class="bi bi-search" style="font-size:1rem; -webkit-text-stroke-width: 1px;"></i>
+                </button>
+                </button>
+                <!-- <button type="button" class="btn"><i class="bi bi-cart3"></i></button> -->
+                <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
+                    <i class="bi bi-cart3"></i><span class="cart-total">{{ all_items }}</span>
+                </a>
+                <span class="total-price"></span>
             </div>
         </div>
    </div>
@@ -131,3 +154,16 @@
     </div>
 </div>
 <!-- /left sidebar nav -->
+
+<!-- right sidebar nav  profile-->
+<!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample-right2" aria-labelledby="right-offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="user-profile">
+        </div>
+    </div>
+</div> -->
+
+<!-- right sidebar nav -->
