@@ -8,9 +8,9 @@
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var checkoutHeader = document.getElementById("check");
-checkoutHeader.addEventListener("click", function() {
-  console.log(clientSecret);
-});
+// checkoutHeader.addEventListener("click", function() {
+//   console.log(clientSecret);
+// });
 console.log(clientSecret);
 var stripe = Stripe(stripePublic_key);
 var elements = stripe.elements();
@@ -96,14 +96,7 @@ form.addEventListener('submit', function(ev) {
 
     var url = '/checkout/cache_checkout_data/';
 
-
-
-
-    $.post(url.postData).done(function(){
-
-
-
-
+    $.post(url,postData).done(function(){
         stripe.confirmCardPayment(clientSecret, {
 
             payment_method: {
@@ -177,6 +170,8 @@ form.addEventListener('submit', function(ev) {
                     <span>${result.error.message}</span>`;
 
                 $(errorDiv).html(html);
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
 
                 card.update({ 'disabled': false});
 
