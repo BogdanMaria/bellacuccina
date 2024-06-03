@@ -26,39 +26,6 @@ $('.back-to-top').click(function(e) {
 })
 
 
-// update cart
-
-// $('#addToCartBtn').on('click', function(){
-//     var _addBtn = $(this);
-//     var _qty = $('.product-qty').val();
-//     var _productId = $('.product-id').val();
-//     var _productName = $('.product-name').text();
-//     var _productImage = $('.product-image').val();
-//     var _productPrice = $('.product-price').text();
-//     console.log(_qty);
-
-//     // Ajax
-//     $.ajax({
-//         url:'/add_to_cart',
-//         data:{
-//             'id':_productId,
-//             'image':_productImage,
-//             'qty':_qty,
-//             'name':_productName,
-//             'price':_productPrice,
-//         },
-//         dataType:'json',
-//         beforeSend:function(){
-//             _addBtn.attr('disabled',true);
-//         },
-//         success:function(res){
-//             $('.cart-total').text(res.totalitems);
-//             _addBtn.attr('disabled',false);
-//         }
-//     });
-//     // End
-
-// })
 function updateCartTotal() {
     $.ajax({
         url: '/get_cart_total/',
@@ -124,4 +91,16 @@ $('#addToCartBtn').on('click', function(){
         }
     });
 
-})
+});
+
+$(document).ready(function() {
+    window.onpageshow = function(event) {
+      if (event.persisted) {
+        // The page is loaded from the cache
+        location.reload(true); // Reload the page
+      } else {
+        // The page is loaded from the server
+        updateCartTotal(); // Update the cart total
+      }
+    };
+  });
