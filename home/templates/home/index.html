@@ -55,16 +55,15 @@
 <div class="container-fluid text-center">
     <!-- <h2 class="fw-bold">Best Sellers</h2> -->
     <div class="row pt-5">
-        <div class="col">
+        <div class="col p-0 me-1">
             <img src="{{ MEDIA_URL }}seller1.jpg" alt="" class="img-fluid">
         </div>
-        <div class="col">
+        <div class="col p-0 ms-1">
             <img src="{{ MEDIA_URL }}seller2.jpg" alt="" class="img-fluid">
         </div>
     </div>
-    <h2 class="fw-bold text-white p-4">Best Sellers</h2>
 </div>
 
-
+{% include 'partials/footer.html' %}
 <!-- carousel -->
 {% endblock %}

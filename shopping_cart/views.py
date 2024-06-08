@@ -59,12 +59,18 @@ def add_to_cart(request):
 
 def get_cart_total(request):
     my_msg = ''
+    total_price = 0
     if 'cart' in request.session:
         cart_item = request.session['cart']
+        for key, item in cart_item.items():
+            qty = item['qty']
+            price = item['price']
+            total_price += qty * price
         total_items = sum(item['qty'] for item in request.session['cart'].values())
         my_msg = str(f'item added to a cart')
     else:
         total_items = 0
+        total_price = 0
 
     return JsonResponse({'total_items': total_items,
                         'message': my_msg,})

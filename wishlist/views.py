@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, re
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
+from django.http import JsonResponse
 
 from .models import Wishlist
 from products.models import Product
@@ -49,6 +50,24 @@ def remove_from_wishlist(request):
         wish_item.delete()
         messages.success(request, f'{wish_item.product.name} deleted from wishlist')
         # Update the wishlist count in session
-        wishlist_count = Wishlist.objects.filter(user=request.user).count()
-        request.session['wishlist_count'] = wishlist_count
+        # wishlist_count = Wishlist.objects.filter(user=request.user).count()
+        # request.session['wishlist_count'] = wishlist_count
     return HttpResponseRedirect(reverse('wishlist:wishlist'))
+
+
+def wishlist_total(request):
+    """
+    handling wishlist objects for
+    navbar counter
+    """
+
+    if request.user.is_authenticated:
+        wishlist_count = Wishlist.objects.filter(user=request.user).count()
+
+    else:
+        wishlist_count = 0
+
+    return JsonResponse({
+        'wishlist_count': wishlist_count,
+
+    })

@@ -32,7 +32,9 @@ function updateCartTotal() {
       dataType: 'json',
       success: function(res) {
         var totalItems = res.total_items;
+        var total_price = res.total_price;
         $('.cart-total').text(totalItems);
+        $('.price').text(total_price);
       }
     });
   }
