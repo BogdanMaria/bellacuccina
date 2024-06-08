@@ -6,11 +6,7 @@
 
 <div class="container-fluid mt-3 mb-1 bg-light">
     <h1 class="text-center">
-        {% if current_categories %}
         PRODUCTS
-        {% else %}
-        PRODUCTS
-        {% endif %}
     </h1>
     <div class="row">
         <div class="row mt-1 d-flex justify-content-around mx-auto">
@@ -56,15 +52,18 @@
             <div class="product-card">
                 <div class="product-card__images">
                     <div class="product-card__img">
-                        {% if product.my_product.image %}
-                        <img class="img-1" height="200px" src="{{ product.image.url }}" />
+                        {% if product.image %}
+                        <a href="{% url 'products:product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
                         {% else %}
-                        <h1>No image available</h1>
-
+                        <a href="{% url 'products:product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
                         {% endif %}
                     </div>
                     <div class="product-card__like">
-                        <form action="{% url 'wishlist:add_to_wishlist' %}" method="POST" >
+                        <form action="{% url 'wishlist:add_to_wishlist' %}" method="POST" enctype = "multipart/form-data">
                             {% csrf_token %}
                             <input type="hidden" name="product-id" value="{{ product.id }}" >
                             <button type="submit" class="btn heart"><i class="product-card__heart bi bi-suit-heart" style="font-size: 2rem;-webkit-text-stroke-width: 1px;"></i></button>
@@ -89,13 +88,17 @@
                         <form method="POST">
                             {% csrf_token %}
                             <div class="all_products">
+                                <a class="btn addToCartBtn" href="#"><i class="bi bi-cart-check" style="-webkit-text-stroke-width: 1.5px; font-size: 1.5rem; color: rgb(8, 143, 14);"></i></a>
                                 <!-- hidden inputs for ajax call -->
                                 <input type="hidden" class="product-id" value="{{ product.id }}" >
+                                {% if product.image %}
                                 <input type="hidden" class="product-image" value="{{ product.image.url }}" >
+                                {% else %}
+                                <input type="hidden" class="product-image" value="{{ MEDIA_URL }}noimage.png" >
+                                {% endif %}
                                 <input type="hidden" class="product-price" value="{{ product.price }}">
                                 <input type="hidden" class="product-name" value="{{ product.name }}">
                                 <input type="hidden" class="csrf_token" value="{{ csrf_token }}">
-                                <a class="btn addToCartBtn" href="#"><i class="bi bi-cart-check" style="-webkit-text-stroke-width: 1.5px; font-size: 1.5rem; color: rgb(8, 143, 14);"></i></a>
                                 <a class="btn" href="#"><i class="bi bi-eye-fill" style=" font-size: 1.5rem;"></i> </a>
                             </div>
                         </form>

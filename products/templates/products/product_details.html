@@ -9,9 +9,15 @@
     <div class="row gx-4 gx-lg-5 all_items-start">
         <div class="col-md-6">
             <div class="detail-image-container">
+                {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top mb-5 mb-md-0" src="{{ product.image.url }}" alt="..." />
+                    <img class="card-img-top mb-5 mb-md-0" src="{{ product.image.url }}" alt="{{ product.name }}" />
                 </a>
+                {% else %}
+                <a href="{{ MEDIA_URL }}no_image.jpg" target="_blank">
+                    <img class="card-img-top mb-5 mb-md-0" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-6">
@@ -28,7 +34,11 @@
             </div>
             <!-- hidden inputs for ajax call -->
             <input type="hidden" class="product-id" value="{{ product.id }}">
+            {% if product.image %}
             <input type="hidden" class="product-image" value="{{ product.image.url }}">
+            {% else %}
+                <input type="hidden" class="product-image" value="{{ MEDIA_URL }}noimage.png" >
+                {% endif %}
             <input type="hidden" class="product-price" value="{{ product.price }}">
             <!-- end  -->
             <div class="counter">

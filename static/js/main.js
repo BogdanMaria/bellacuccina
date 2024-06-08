@@ -26,20 +26,6 @@ $('.back-to-top').click(function(e) {
 })
 
 
-// function updateCartTotal() {
-//     $.ajax({
-//         url: '/get_cart_total/',
-//         dataType: 'json',
-//         success: function (res) {
-//             $('.cart-total').text(res.total_items);
-
-
-//         }
-//     });
-// }
-
-// new try
-
 function updateCartTotal() {
     $.ajax({
       url: '/get_cart_total/',
@@ -152,49 +138,54 @@ $('.addToCartBtn').on('click', function(){
             _addBtn.attr('disabled',false);
             console.log(res.data);
         }
-    });
+    });wishlist_products
 });
 
+// new try image fromwishlist to cart nor rendering
+$('.addToCartBtnWish').on('click', function(){
+    var _addBtn = $(this);
+    var _qty = 1;
+    var _productName = $(this).closest('.wishlist_products').find('.product-name').val();
+    var _productId = $(this).closest('.wishlist_products').find('.product-id').val();
+    var _productName = $(this).closest('.wishlist_products').find('.product-name').val();
+    var _productImage = $(this).closest('.wishlist_products').find('.product-image').val();
+    var _productPrice = $(this).closest('.wishlist_products').find('.product-price').val();
+
+    console.log(_productId);
+    console.log(_productName);
+    console.log(_productPrice);
+    console.log(_productImage);
+
+    $.ajax({
+        url:'/add_to_cart/',
+        type : 'POST',
+        headers: {
+            'X-CSRFToken': $(this).closest('.wishlist_products').find('.csrf_token').val()
+        },
+        data:{
+            'id':_productId,
+            'image':_productImage,
+            'qty':_qty,
+            'name':_productName,
+            'price':_productPrice,
+        },
+
+        dataType:'json',
+        beforeSend:function(){
+
+            _addBtn.attr('disabled',true);
+        },
+        success:function(res){
+
+            updateCartTotal()
+            $('.success-modal').modal('show');
+            _addBtn.attr('disabled',false);
+            console.log(res.data);
+        }
+    });
+})
+
 //
-
-// $(document).ready(function() {
-//     // Retrieve cart information from the local storage
-//     var cartData = JSON.parse(localStorage.getItem('cart'));
-
-//     // Update the cart counter
-//     if (cartData) {
-//       var totalItems = cartData.total_items;
-//       $('.cart-total').text(totalItems);
-//     }
-//   });
-
-//   $(window).on('popstate', function() {
-//     // Retrieve cart information from the local storage
-//     var cartData = JSON.parse(localStorage.getItem('cart'));
-
-//     // Update the cart counter
-//     if (cartData) {
-//       var totalItems = cartData.total_items;
-//       $('.cart-total').text(totalItems);
-
-//     }
-//   });
-
-
-// $(document).ready(function () {
-//     // Initialize cart counter with value from localStorage
-//     var total_items = localStorage.getItem('total_items');
-//     if (total_items) {
-//         $('.cart-total').text(total_items);
-//     }
-
-//     // Listen for updates to cart counter and update localStorage
-//     $(document).on('cartUpdated', function (event, total_items) {
-//         $('.cart-total').text(total_items);
-//         localStorage.setItem('total_items', total_items);
-//     });
-// });
-
 
 $(document).ready(function () {
     updateCartTotal();
