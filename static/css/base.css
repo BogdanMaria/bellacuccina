@@ -41,13 +41,10 @@ input::placeholder {
 /* carousel */
 /* Declare heights because of positioning of img element */
 .carousel-title{
-    background-color: #c0c0aa;
+    background-color: #37423180;
 }
 .carousel-item {
-  /* height: 32rem; */
   height: 75vh;
-
-
 }
 
 .carousel-item>img {
@@ -63,6 +60,67 @@ input::placeholder {
   overflow: hidden;
 
 }
+
+.carousel-control-prev,
+.carousel-control-next  {
+  margin-top: 300px;
+  background-color:#c0c0aa;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
+
+
+
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: white !important;
+}
+
+/* new carousel */
+.bg-img-1 {
+  background: url("/media/carousel1.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+}
+
+.bg-img-2 {
+  background-image: url('/media/carousel2.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg-img-3 {
+  background-image: url('/media/carousel3.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-item  {
+  /* background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75vh; */
+}
+
+/* end new carousel */
+
 
 .cart-total{
 
