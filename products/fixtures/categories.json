@@ -6,7 +6,7 @@
             "name": "Pasta",
             "notes": "Hand made pasta for all homecooking needs",
             "slug": "",
-            "friendly_name": "pasta "
+            "friendly_name": "Pasta"
         }
     },
     {
@@ -16,7 +16,7 @@
             "name": "Fresh Produce",
             "notes": "Fresh produce from the farmers straight to the table",
             "slug": "",
-            "friendly_name": "fresh"
+            "friendly_name": "Fresh Product"
         }
     },
     {
@@ -26,7 +26,7 @@
             "name": "Cured Meats",
             "notes": "Best cured meats that Italy has to offer",
             "slug": "",
-            "friendly_name": "cured"
+            "friendly_name": "Cured Meats"
         }
     }
 ]
