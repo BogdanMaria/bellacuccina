@@ -29,7 +29,7 @@ def cart_content(request):
         'total': total,
         'total_items': len(cart_data),
         'cart_items': cart_items,
-        'product': product,
+        'my_product': product,
         'all_items': all_items,
     }
 
