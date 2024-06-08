@@ -8,6 +8,6 @@ app_name = 'reviews'
 
 
 urlpatterns = [
-    path('', ),
+    path('create_review', views.create_review, name='create_review'),
 
 ]
