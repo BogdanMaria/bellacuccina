@@ -61,6 +61,7 @@ def product_detail(request, product_id):
 
     context = {
         'product': product,
+        'on_products_page': True,
     }
 
     return render(request,template, context)

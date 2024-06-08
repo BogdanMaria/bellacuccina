@@ -41,6 +41,9 @@
     {% endblock %}
 </head>
   <body>
+    <div class="my_div">
+      {% include 'partials/toast_msg/toast_custom.html' %}
+    </div>
 
     {% if messages %}
     <div class="message-container">
