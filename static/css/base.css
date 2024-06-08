@@ -28,6 +28,10 @@ label {
   display: none;
 }
 
+.product-form label{
+  display: block !important;
+}
+
 input::placeholder {
   opacity: 50% !important;
 }
@@ -382,3 +386,7 @@ message-container{
 }
 
 /* modal */
+
+.product-form label{
+  display: block !important;
+}
