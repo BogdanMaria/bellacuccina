@@ -1,9 +1,13 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
 
 from .models import Wishlist
 from products.models import Product
 
+
+@login_required
 def wishlist(request):
     """
     view to render the wishlist page
@@ -16,6 +20,7 @@ def wishlist(request):
     return render(request, template, context)
 
 
+@login_required
 def add_to_wishlist(request):
     if request.method == 'POST':
         product_id = request.POST.get('product-id')
@@ -33,6 +38,8 @@ def add_to_wishlist(request):
         return HttpResponseRedirect(redirect_url)
 
 
+
+@login_required
 def remove_from_wishlist(request):
 
     if request.method == 'POST':
@@ -41,4 +48,7 @@ def remove_from_wishlist(request):
         wish_item = get_object_or_404(Wishlist, pk=item_id)
         wish_item.delete()
         messages.success(request, f'{wish_item.product.name} deleted from wishlist')
+        # Update the wishlist count in session
+        wishlist_count = Wishlist.objects.filter(user=request.user).count()
+        request.session['wishlist_count'] = wishlist_count
     return HttpResponseRedirect(reverse('wishlist:wishlist'))
