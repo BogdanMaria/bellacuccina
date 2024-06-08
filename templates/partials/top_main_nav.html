@@ -7,34 +7,49 @@
         <a class="navbar-brand" href="#">
             <img src="{{ MEDIA_URL }}logo.png" alt="" class="my-logo img-fluid">
         </a>
-        <div class="d-flex d-lg-none align-items-center" >
-            <a href="{% url 'wishlist:wishlist' %}"  role="button" class="btn py-3"><i class="bi bi-suit-heart" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i></a>
+        <div class="d-flex d-lg-none align-items-center">
+            <div>
+                <a href="{% url 'wishlist:wishlist' %}" role="button" class="btn py-3">
+                    <i class="bi bi-suit-heart" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;">
+                    </i>
+                </a>
+                <span class="heart-total">3</span>
+            </div>
             <div class="dropdown">
-                <button type="button" id="dropdownProfile1" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" id="dropdownProfile1" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
 
-            <ul class="dropdown-menu " aria-labelledby="dropdownProfile1">
-                {% if request.user.is_authenticated %}
-                <li><a class="dropdown-item " href="{% url 'customer_profile:profile' %}">
-                    Profile</a></li>
-                {% endif %}
-                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                {% if request.user.is_authenticated %}
-                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                {% endif %}
-                {% if request.user.is_superuser %}
-                <li><a class="dropdown-item " href="{% url 'products:add_product' %}">Shop management</a></li>
-                {% endif %}
-            </ul>
-      </div>
-      <button class="btn"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right">
-        <i class="bi bi-search" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
-      </button>
-            <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
-                <i class="bi bi-cart3"></i>
-                <span class="cart-total"> {{ all_items }}</span>
-            </a>
+                <ul class="dropdown-menu " aria-labelledby="dropdownProfile1">
+                    {% if request.user.is_authenticated %}
+                    <li><a class="dropdown-item " href="{% url 'customer_profile:profile' %}">
+                            Profile</a></li>
+                    {% endif %}
+                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                    <li><a class="dropdown-item " href="{% url 'products:add_product' %}">Shop management</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right">
+                <i class="bi bi-search" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
+            </button>
+            <div>
+                <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
+                    <i class="bi bi-cart3"></i>
+                </a>
+                <span class="cart-total">
+                    {% if all_items %}
+                    {{ all_items }}
+                    {% else %}
+                    0
+                    {% endif %}
+                </span>
+            </div>
         </div>
 
 
@@ -47,26 +62,37 @@
                     <a class="nav-link" href="{% url 'products:store_products' %}">Products</a>
                 </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         All Products
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=price&direction=asc">By Price</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=weight&direction=desc">By Weight</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=category&direction=asc">By Category</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products:store_products' %}?sort=price&direction=asc">By Price</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products:store_products' %}?sort=weight&direction=desc">By Weight</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products:store_products' %}?sort=category&direction=asc">By Category</a>
+                        </li>
                         <li><a class="dropdown-item" href="{% url 'products:store_products' %}">All Products</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         Categories
                     </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta">Pasta</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Fresh Produce">Fresh Produce</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Cured Meats">Cured Meats</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All Categories</a></li>
-                </ul>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta">Pasta</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products:store_products' %}?category=Fresh Produce">Fresh Produce</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products:store_products' %}?category=Cured Meats">Cured Meats</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All
+                                Categories</a></li>
+                    </ul>
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'contact_about:contact_about' %}">About</a>
                 </li>
@@ -75,44 +101,51 @@
                 </li>
             </ul>
             <div class="d-none d-lg-flex flex-row w-auto align-items-center">
-                <a href="{% url 'wishlist:wishlist' %}" role="button" class="btn py-3"><i class="bi bi-suit-heart" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i></a>
+                <div>
+                    <a href="{% url 'wishlist:wishlist' %}" role="button" class="btn py-3"><i class="bi bi-suit-heart"
+                            style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i></a>
+                    <span class="heart-total">3</span>
+                </div>
                 <div class="dropdown">
 
-                    <button type="button" id="dropdownProfile2" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button" id="dropdownProfile2" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
 
-                <ul class="dropdown-menu " aria-labelledby="dropdownProfile2">
-                    {% if request.user.is_authenticated %}
-                    <li><a class="dropdown-item " href="{% url 'customer_profile:profile' %}">Profile</a></li>
-                    {% endif %}
-                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                    {% if request.user.is_authenticated %}
-                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                    {% endif %}
-                    {% if request.user.is_superuser %}
-                    <li><a class="dropdown-item " href="{% url 'products:add_product' %}">Shop management</a></li>
-                    {% endif %}
-                </ul>
-          </div>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownProfile2">
+                        {% if request.user.is_authenticated %}
+                        <li><a class="dropdown-item " href="{% url 'customer_profile:profile' %}">Profile</a></li>
+                        {% endif %}
+                        <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                        {% if request.user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                        {% endif %}
+                        {% if request.user.is_superuser %}
+                        <li><a class="dropdown-item " href="{% url 'products:add_product' %}">Shop management</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-right">
                     <i class="bi bi-search" style="font-size:1rem; -webkit-text-stroke-width: 1px;"></i>
                 </button>
-                </button>
-                <!-- <button type="button" class="btn"><i class="bi bi-cart3"></i></button> -->
-                <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
-                    <i class="bi bi-cart3"></i><span class="cart-total">{{ all_items }}</span>
-                </a>
+                <div>
+                    <a class="btn py-3" role="button" href="{% url 'shopping_cart:cart' %}">
+                        <i class="bi bi-cart3"></i>
+                    </a>
+                    <span class="cart-total">{{ all_items }}</span>
+                </div>
                 <span class="total-price"></span>
             </div>
         </div>
-   </div>
+    </div>
 </nav>
 
 <!-- main navigation -->
 
 <!-- right sidebar nav -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample-right" aria-labelledby="right-offcanvasExampleLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample-right"
+    aria-labelledby="right-offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="right-offcanvasExampleLabel">Search the Store</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -132,7 +165,8 @@
 <!-- /right sidebar nav -->
 
 <!-- left sidebar nav -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample-left" aria-labelledby="left-offcanvasExampleLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample-left"
+    aria-labelledby="left-offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="left-offcanvasExampleLabel">Title left</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -143,25 +177,35 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     All Products
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=price&direction=asc">By Price</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=weight&direction=desc">By Weight</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=category&direction=asc">By Category</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?sort=price&direction=asc">By
+                            Price</a></li>
+                    <li><a class="dropdown-item"
+                            href="{% url 'products:store_products' %}?sort=weight&direction=desc">By Weight</a></li>
+                    <li><a class="dropdown-item"
+                            href="{% url 'products:store_products' %}?sort=category&direction=asc">By Category</a></li>
                     <li><a class="dropdown-item" href="{% url 'products:store_products' %}">All Products</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Categories
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Categories
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta">Pasta</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Fresh Produce">Fresh Produce</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Cured Meats">Cured Meats</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All Categories</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Pasta">Pasta</a>
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Fresh Produce">Fresh
+                            Produce</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products:store_products' %}?category=Cured Meats">Cured
+                            Meats</a></li>
+                    <li><a class="dropdown-item"
+                            href="{% url 'products:store_products' %}?category=Pasta,Fresh Produce,Cured Meats">All
+                            Categories</a></li>
                 </ul>
             </li>
             <li class="nav-item">
