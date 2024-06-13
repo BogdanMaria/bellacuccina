@@ -15,7 +15,7 @@
     </div>
 
     <!-- About Us Section -->
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class=" col-xl-5 col-md-12 about-us-section">
             <h2 class="p-3 w-50 mx-auto">About Us</h2>
             <p class="p-3 w-50 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis dicta
@@ -27,32 +27,26 @@
                 beatae!
             </p>
         </div>
-        <div class="col-xl-7 col-md-12 overlap-image-column">
-            <div class="overlap-container d-flex justify-content-center p-5">
-                <!-- <div class="overlap-image1 h-75"></div>
-           <div class="overlap-image2"></div> -->
-                <div class="overlap-image1 h-75"><img src="{{MEDIA_URL}}carousel1.jpg" alt=""></div>
-                <div class="overlap-image2"><img src="{{MEDIA_URL}}carousel1.jpg" alt=""></div>
-            </div>
+        <div class="col-xl-7 col-md-7 col-12 m-auto p-4"><img src="{{MEDIA_URL}}carousel1.jpg" alt="" class="img-fluid"></div>
+    </div>
+</div>
+<!-- Contact and Image Section -->
+<div class="row contact-row pt-2">
+    <h4 class="text-center fw-bold p-3">Contact Us</h4>
+    <div class="col-md-6 contact-column">
+        <!-- Contact Form will be inserted here -->
+        <form action="{% url 'contact_about:contact_about'%}" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Send message</button>
+        </form>
+    </div>
+    <div class="col-md-6 image-column pt-0">
+        <div class="card ">
+            <img src="{{ MEDIA_URL}}contact_bottom.jpg" alt="" class="card-img-top img-fluid">
         </div>
     </div>
-    <!-- Contact and Image Section -->
-    <div class="row contact-row pt-2">
-        <h4 class="text-center fw-bold p-3">Contact Us</h4>
-        <div class="col-md-6 contact-column">
-            <!-- Contact Form will be inserted here -->
-            <form action="{% url 'contact_about:contact_about'%}" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-success">Send message</button>
-            </form>
-        </div>
-        <div class="col-md-6 image-column pt-0">
-            <div class="card ">
-                <img src="{{ MEDIA_URL}}contact_bottom.jpg" alt="" class="card-img-top img-fluid">
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 {% include 'partials/footer.html' %}
 {% endblock%}

@@ -570,12 +570,13 @@ message-container{
   display:inline-block;
   text-align:center;
   border-radius:50%;
-  box-shadow:0 0 0 1px #c0c0aa80;
+  box-shadow:0 0 0 1px #374231;
   margin:0 8px;
   /* color:#fff; */
   color:#1f1d1d;
   opacity:0.75;
 }
+
 
 .footer-dark .item.social > a:hover {
   opacity:0.9;
