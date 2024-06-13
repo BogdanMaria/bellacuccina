@@ -179,11 +179,10 @@
         </div>
     </div>
 </div>
-{% if user.is_authenticated %}
+
 <div class="col-12 text-center my-4">
-    <a href="" class=" text-center rounded-0 mt-2">
-        <span class="icon"><i class="fa-regular fa-circle-left"></i></span>
-        <span class="text-uppercase">Return to Profile</span>
+    <a href="{% url 'products:store_products'%}" class="btn btn-dark ">
+        <i class="bi bi-backspace-fill"></i> Back to shop
     </a>
 </div>
 {% else %}
@@ -192,16 +191,20 @@
         <span class="icon"><i class="fa-regular fa-circle-left"></i></span>
         <span class="text-uppercase">Home</span>
     </a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'customer_profile:profile' %}" class=" text-center  btn btn-success">
+        Return to Profile
+    </a>
+    {% else %}
+    <a href="{% url 'home:home' %}" class=" text-center btn btn-success">
+       Home
+    </a>
+    {% endif %}
 </div>
-{% endif %}
-<div class="row">
+
+<!-- <div class="row">
     <div class="col-12 col-lg-7 text-right">
-        <a href="{% url 'products:store_products' %}" class="btn btn-black rounded-0 my-2">
-            <span class="icon mr-2">
-                <i class="fas fa-gifts"></i>
-            </span>
-            <span class="text-uppercase">Back to Shop</span>
-        </a>
+
     </div>
-</div>
+</div> -->
 {% endblock %}
