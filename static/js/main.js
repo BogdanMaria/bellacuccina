@@ -55,7 +55,7 @@ $('#addToCartBtn').on('click', function(){
     var _productName = $('.product-name').text();
     var _productImage = $('.product-image').val();
     var _productPrice = $('.product-price').val();
-    console.log(_productPrice);
+    // console.log(_productPrice);
 
     if (_qty > 10 || _qty <= 0) {
         // code taken from https://djangocentral.com/django-ajax-with-jquery/
@@ -91,10 +91,10 @@ $('#addToCartBtn').on('click', function(){
             _addBtn.attr('disabled',true);
         },
         success:function(res){
-            var message = res.my_message;
-            console.log(message);
+            var message = _productName + ' quantity: ' + _qty + ' added to cart';
             updateCartTotal()
             $('.success-modal').modal('show');
+            $('.custom-content').text(message)
             console.log(res.data);
             $('.product-qty').removeClass('is-invalid')
             $('#Error').remove()
@@ -140,9 +140,10 @@ $('.addToCartBtn').on('click', function(){
             _addBtn.attr('disabled',true);
         },
         success:function(res){
-
+            var message = _productName + ' quantity: ' + _qty + ' added to cart';
             updateCartTotal()
             $('.success-modal').modal('show');
+            $('.custom-content').text(message)
             _addBtn.attr('disabled',false);
             console.log(res.data);
         }
@@ -184,7 +185,8 @@ $('.addToCartBtnWish').on('click', function(){
             _addBtn.attr('disabled',true);
         },
         success:function(res){
-
+            var message = _productName + ' quantity: ' + _qty + ' added to cart';
+            $('.custom-content').text(message)
             updateCartTotal()
             $('.success-modal').modal('show');
             _addBtn.attr('disabled',false);

@@ -3,7 +3,7 @@
 
 {% block content %}
 {% include 'partials/top_main_nav.html' %}
-{% include 'partials/delete_modal.html' %}
+{% include 'partials/delete_product_modal.html' %}
 
 <h2 class="text-center">Product details page</h2>
 <div class="container px-4 px-lg-5 my-1 ">
@@ -31,11 +31,12 @@
             {% if request.user.is_superuser %}
             <div>
                 <small class="ml-3">
-                    <a href="{% url 'products:delete_product' product.id %}" class="btn btn-danger mt-3"><i
-                            class="bi bi-trash3"></i></a>
+                    <a class="btn btn-primary mt-3" href="{% url 'products:edit_product' product.id %}">
+                        <i class="bi bi-pencil-square"></i>Edit</a>
+                    <button class="btn btn-danger mt-3 shadow-none" aria-label="delete-product-button" data-bs-toggle="modal" data-bs-target="#modal_{{product_id}}">
+                        <i class="bi bi-trash3"></i>
 
-                    <a class="btn btn-primary mt-3" href="{% url 'products:edit_product' product.id %}"><i
-                            class="bi bi-pencil-square"></i>Edit</a>
+                    </button>
                 </small>
             </div>
             {% endif %}
@@ -118,6 +119,7 @@
             </div>
             <div class="commented-section mt-2 ">
                 {% for review in reviews %}
+                {% include 'partials/delete_modal_review.html' %}
                 <div class="user-comments mt-2">
 
                     <div class="d-flex flex-column align-items-start commented-user mt-2 mb-2">
@@ -128,23 +130,17 @@
                             </span>
                             <h5 class="mr-2 mb-0 ml-1">{{ review.author }} </h5>
                         </div>
-                        <!-- <span class="dot mb-1">
-
-                            </span> -->
                         <span class="mb-1 ml-2 text-muted">{{ review.time_posted}}</span>
                     </div>
 
                     <div class="comment-text-sm review_content" data-id="{{ review.id }}">
                         <span>{{ review.content }}</span>
                         <div class="d-flex">
-                            {% if request.user is review.author %}
-                            <button class="btn btn-secondary py-0 edit_review" type="button">edit</button>
-                            <form action="" method="POST" class="mx-2 delete-form">
-                                {% csrf_token %}
-                                <input type="hidden" name="review_id" value="{{ review.id }}">
-                                <input type="hidden" name="delete-ur" value="{% url 'reviews:delete_review' %}">
-                                <button class="btn btn-danger py-0 " type="submit">delete</button>
-                            </form>
+                            {% if request.user == review.author %}
+                            <button class="btn btn-secondary py-0 edit_review" type="button">Edit</button>
+                            <button class="btn btn-danger mt-3 shadow-none" aria-label="delete-product-button" data-bs-toggle="modal" data-bs-target="#modal_{{ review.id }}">
+                                <i class="bi bi-trash3"></i>
+                            </button>
                             {% else %}
                             {% endif %}
                         </div>
@@ -168,7 +164,7 @@
                         <input type="hidden" class="default-product-id" value="{{ product.id}}">
                         <input type="hidden" class="user" value="{{ request.user.username}}">
                         {{ form|crispy }}
-                        <button class="btn btn-primary  mt-0 add_review" type="submit">Comment</button>
+                        <button class="btn btn-primary  mt-0 add_review" type="submit">Add Review</button>
                     </form>
                 </div>
                 <input type="hidden" id="delete-url" value="{% url 'reviews:delete_review' %}">
