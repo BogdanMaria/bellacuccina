@@ -3,6 +3,12 @@ html{
     scroll-behavior: smooth;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* navbar */
 .my-logo{
   width: 70px;
