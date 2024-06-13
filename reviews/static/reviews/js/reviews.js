@@ -123,11 +123,7 @@ $(document).ready(function(){
                 'review-id': review_id,
 
             };
-
         }
-
-
-
             $.ajax({
                     url: url,
                     type: 'POST',
@@ -149,13 +145,6 @@ $(document).ready(function(){
 
                     },
                     success:function(res){
-                        // console.log(res.status);
-                        // var author=res.author
-                        // var content=res.content
-                        // var message=res.message
-                        // console.log(message);
-                        // var deleteUrl = $('#delete-url').val()
-                        // $('.delete-form').attr('action',deleteUrl)
 
                         if(res.status==='created'){
 
@@ -183,31 +172,11 @@ $(document).ready(function(){
                             $('.modal-header').css('border-top','3px solid green');
                             $('.review-form')[0].reset();
                             $('.product-id').val(_default_product_id);
-
-
-
                         }
-
-                        // if($('.delete-form')){
-                        //     var deleteUrl = $('#delete-url').val()
-                        //     $('.delete-form').attr('action',deleteUrl)
-
-                        // }
-
-
-
                         _submitBtn.attr('disabled',false);
                         $('.review-form')[0].reset();
-
-
-
                     }
-
             });
-
-
-
-
     });
 
     $('.commented-section').on('click', '.review_content', function(){
