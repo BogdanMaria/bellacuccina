@@ -21,14 +21,14 @@
                 <!-- <img src="{{ MEDIA_URL }}carousel1.jpg" class="d-block w-100 img-fluid image1" alt="..."> -->
                 <div class="carousel-caption d-flex flex-column align-items-start mb-2">
                     <h1 class="text-white fw-bold hero mb-3 ">FRESH PRODUCE</h1>
-                    <button class="btn btn-lg btn-light px-5 mb-3"><span class="h3">SHOP NOW</span></button>
+                    <a href="{% url 'products:store_products' %}" class="btn btn-lg btn-light px-5 mb-3"><span class="h3">SHOP NOW</span></a>
                 </div>
             </div>
             <div class="carousel-item bg-img-2">
                 <!-- <img src="{{ MEDIA_URL }}carousel2.jpg" class="d-block w-100" alt="..."> -->
                 <div class="carousel-caption d-flex flex-column align-items-start mb-2">
                     <h1 class="text-white fw-bold hero mb-3 ">FRESH PRODUCE</h1>
-                    <button class="btn btn-lg btn-light px-5 mb-3"><span class="h3">SHOP NOW</span></button>
+                    <a href="{% url 'products:store_products' %}" class="btn btn-lg btn-light px-5 mb-3"><span class="h3">SHOP NOW</span></a>
                 </div>
             </div>
             <div class="carousel-item bg-img-3">
@@ -36,7 +36,7 @@
                 <div class="carousel-caption d-flex flex-column align-items-start mb-2">
                     <!-- <h5 class="text-white">Third slide label</h5> -->
                     <h1 class="text-white fw-bold hero mb-3">FRESH PRODUCE</h1>
-                    <button class="btn btn-lg btn-light px-5 mb-3 "><span class="h3">SHOP NOW</span></button>
+                    <a href="{% url 'products:store_products' %}" class="btn btn-lg btn-light px-5 mb-3 "><span class="h3">SHOP NOW</span></a>
                 </div>
             </div>
         </div>

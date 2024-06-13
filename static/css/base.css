@@ -100,27 +100,15 @@ input::placeholder {
 
 /* new carousel */
 .bg-img-1 {
-  background: url("/media/carousel1.jpg");
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("/media/carousel1.jpg") center/cover no-repeat;
 }
 
 .bg-img-2 {
-  background-image: url('/media/carousel2.jpg');
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url('/media/carousel2.jpg') center/cover no-repeat;
 }
 
 .bg-img-3 {
-  background-image: url('/media/carousel3.jpg');
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url('/media/carousel3.jpg') center/cover no-repeat;
 }
 
 .carousel-item  {
