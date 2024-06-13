@@ -38,7 +38,7 @@ function updateCartTotal() {
             $('.price').text('$0.00');
 
         }else{
-            $('.price').text(total_price);
+            $('.price').html('$'+ total_price);
 
         }
       }
