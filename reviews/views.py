@@ -85,9 +85,9 @@ def delete_review(request):
 
         if request.user == review.author:
             review.delete()
-            messages.success(request, f'Review deleted')
+            messages.info(request, f'Review deleted')
         else:
             messages.error(request,
-                           'CANT DELETE!! TOU ARE NOT AUTHOR OF A REVIEW ')
+                           'CAN NOT DELETE!! YOU ARE NOT THE AUTHOR OF A REVIEW ')
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
