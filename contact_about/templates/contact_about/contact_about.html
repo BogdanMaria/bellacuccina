@@ -37,7 +37,8 @@
         </div>
     </div>
     <!-- Contact and Image Section -->
-    <div class="row contact-row">
+    <div class="row contact-row pt-2">
+        <h4 class="text-center fw-bold p-3">Contact Us</h4>
         <div class="col-md-6 contact-column">
             <!-- Contact Form will be inserted here -->
             <form action="{% url 'contact_about:contact_about'%}" method="POST">
@@ -46,11 +47,12 @@
                 <button type="submit" class="btn btn-success">Send message</button>
             </form>
         </div>
-        <div class="col-md-6 image-column">
-            <div class="contact-img h-75 py-3">
+        <div class="col-md-6 image-column pt-0">
+            <div class="card ">
+                <img src="{{ MEDIA_URL}}contact_bottom.jpg" alt="" class="card-img-top img-fluid">
             </div>
         </div>
     </div>
 </div>
-
+{% include 'partials/footer.html' %}
 {% endblock%}
