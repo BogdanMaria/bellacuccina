@@ -72,56 +72,65 @@
                                             class="col-md-3 col-lg-2 col-xl-2 d-flex justify-content-center align-items-center p-0">
                                             <h6 class="mb-0">$ {{ product.price|floatformat:2 }}</h6>
                                         </div>
-                                        <a class="update-link" role="button" target="{{ product_id }}">
-                                            <i class="bi bi-pencil-square" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
-                                        </a>
-                                        <a class="remove-item text-danger mx-2" id="remove_{{ product_id }}">
-                                            <i class="bi bi-trash" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
-                                        </a>
+                                        <button class="update-link btn text-primary shadow-none"
+                                            aria-label="update-product-button" name="{{ product_id }}">
+                                            <i class="bi bi-pencil-square"
+                                                style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
+                                        </button>
+
+                                        <button class="btn mx-2 text-danger shadow-none"
+                                            aria-label="delete-product-button" data-bs-toggle="modal"
+                                            data-bs-target="#modal_{{product_id}}">
+                                            <i class="bi bi-trash"
+                                                style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
+                                        </button>
+                                        {% include 'partials/delete_modal.html' %}
                                     </div>
+                                </div>
 
-                                    <hr class="my-4">
-                                    {% endfor %}
+                                <hr class="my-4">
+                                {% endfor %}
 
 
-                                    <div class="pt-5">
-                                        <h6 class="mb-0">
-                                            <a href="{% url 'products:store_products'%}" class="btn btn-dark fw-bold">
-                                                <i class="bi bi-backspace-fill"></i>Back to shop
-                                            </a>
-                                        </h6>
-                                    </div>
+                                <div class="pt-5">
+                                    <h6 class="mb-0">
+                                        <a href="{% url 'products:store_products'%}" class="btn btn-dark fw-bold">
+                                            <i class="bi bi-backspace-fill"></i>Back to shop
+                                        </a>
+                                    </h6>
                                 </div>
                             </div>
-                            <div class="col-lg-4 bg-grey">
-                                <div class="p-5">
-                                    <h3 class="fw-bold mb-5 mt-2 pt-1" id="subtotal">Summary</h3>
-                                    <hr class="my-4">
+                        </div>
+                        <div class="col-lg-4 bg-grey">
+                            <div class="p-5">
+                                <h3 class="fw-bold mb-5 mt-2 pt-1" id="subtotal">Summary</h3>
+                                <hr class="my-4">
 
-                                    <div class="d-flex justify-content-between mb-4">
-                                        <h5 class="text-uppercase"></h5>
-                                        <h5></h5>
-                                    </div>
-
-
-                                    <hr class="my-4">
-
-                                    <div class="d-flex justify-content-between mb-5">
-                                        <h5 class="text-uppercase">Total price</h5>
-                                        <h5>$ {{ total|floatformat:2 }}</h5>
-                                    </div>
-
-                                    <a href="{% url 'checkout:store_checkout' %}" class="btn btn-warning btn-block btn-lg fw-bold btn-outline-dark"
-                                        data-mdb-ripple-color="dark"><i class="bi bi-shield-check px-1"></i>SecureCheckout
-                                    </a>
-
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h5 class="text-uppercase"></h5>
+                                    <h5></h5>
                                 </div>
+
+
+                                <hr class="my-4">
+
+                                <div class="d-flex justify-content-between mb-5">
+                                    <h5 class="text-uppercase">Total price</h5>
+                                    <h5>$ {{ total|floatformat:2 }}</h5>
+                                </div>
+
+                                <a href="{% url 'checkout:store_checkout' %}"
+                                    class="btn btn-warning btn-block btn-lg fw-bold btn-outline-dark"
+                                    data-mdb-ripple-color="dark"><i class="bi bi-shield-check px-1"></i>SecureCheckout
+                                </a>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     {% else %}
     <div class="row py-4">
