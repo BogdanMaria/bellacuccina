@@ -10,11 +10,14 @@
 0. [About](#about)
 1. [Project Goals](#project-goals)
     1. [User Goals](#user-goals)
+2. [Business Model](#business-model)
+    1. [SEO](#seo)
+    2. [Marketing](#marketing)
+    3. [Target Audience](#target-audience)
 2. [User Experience](#user-experience)
-    1. [Target Audience](#target-audience)
-    2. [User Requirements and Expectations](#user-requirements-and-expectations)
-    3. [User Stories](#user-stories)
-    4. [Site Owner Stories](#site-owner-stories)
+    1. [User Requirements and Expectations](#user-requirements-and-expectations)
+    2. [User Stories](#user-stories)
+    3. [Site Owner Stories](#site-owner-stories)
 3. [Design](#design)
     1. [Colours](#colours)
     2. [Fonts](#fonts)
@@ -42,6 +45,7 @@
 
 10. [Deployment](#deployment)
     1. [Heroku](#heroku)
+    2. [AWS][#aws]
     2. [Forking GitHub Repo](#forking-the-github-repository)
     3. [Clone a GitHub Repo](#clone-a-github-repository)
 12. [Credits](#credits)
@@ -76,9 +80,68 @@ Enjoy the BellaCuccina Market experince.
 
 ### User Goals
 
-## User Experience
+- View and search for products.
+- Filter products based on criteria.
+- Register and log into/out of an account.
+- View and edit account profile.
+- Add products to the shopping bag and make purchases.
+- View order history.
+- Write product reviews.
+- Create and manage a wishlist.
+- Contact the site owner or customer support.
+- Sign up for a newsletter.
+
+## Business Model
+
+
+
+BellaCuccina Market was born out of a love for authentic Italian food and a desire to share the unparalleled quality and tradition of Italian ingredients with food enthusiasts around the world. From the rolling hills of Tuscany to the sun-drenched coastlines of Sicily, we source our products from trusted artisans and farmers who take pride in their craft, ensuring that every item meets the highest standards of quality and taste.
+
+- Value Proposition:
+    - Pasta: Discover our diverse collection of pasta, from classic spaghetti and penne to regional specialties like orecchiette and tagliatelle. Each variety is made using traditional methods and premium durum wheat, providing the perfect base for your favorite sauces and recipes.
+    - Cured Meats: Our selection of cured meats includes an array of Italian delicacies such as prosciutto, salami, pancetta, and more. These artisanal meats are crafted using time-honored techniques and carefully aged to perfection, delivering rich, savory flavors that elevate any dish.
+    - Fresh Produce: We bring you the freshest, highest-quality produce, from vibrant cherry tomatoes and crisp arugula to fragrant basil and robust zucchini. Our produce is sourced from local growers who prioritize sustainability and freshness, ensuring that you receive the best nature has to offer.
+
+- Target market:
+    - BellaCuccina Market's target market consists of a diverse group of consumers who share a passion for high-quality, authentic Italian food. 
+
+- Customer Relationships:
+    - Engage with customers through social media, email newsletters, and personalized communications to foster brand loyalty.
+    -  Encourage customer feedback and reviews to continuously improve the product selection and overall shopping experience.
+
+- Communication channels:
+    - E-commerce website: Provide a user-friendly online platform where customers can browse, select, and purchase italian products.
+    - Social media platforms: Utilize platforms like Instagram, Facebook, and Twitter to showcase the products, engage with the audience, and drive traffic to the webshop.
+
+### SEO
+
+
+### Marketing
+
+
+### Target audience
+
+- Home Cooks: Individuals who enjoy cooking at home and experimenting with authentic Italian recipes.
+- Food Lovers: Consumers who appreciate the rich flavors and traditional methods of Italian cuisine.
+- Food Connoisseurs: People who seek premium, artisanal ingredients for their culinary creations.
+- Gourmet Food Enthusiasts: Customers who value high-quality, specialty food products.
+- Quality-Conscious Shoppers: Consumers who look for minimally processed, natural ingredients.
+- Italian Expatriates: Individuals living abroad who want to stay connected to their cultural roots through traditional Italian foods.
 
 ##### Back to [top](#table-of-contents)
+
+## User Experience
+
+### User Requirements and Expectations
+
+- Intuitive and user-friendly website interface.
+- Clear and detailed product descriptions.
+- High-quality product images.
+- Easy search and filtering options.
+- Secure and seamless checkout process.
+- Convenient account registration and login.
+- Ability for customers to leave product reviews and ratings.
+- Option to create and manage a personal wishlist of desired items.
 
 ### User stories
 
@@ -145,7 +208,14 @@ Price ,rating, and alphabet ||
 
 ### Data Models
 
+#### User model
+
+- User model as part of the Django allauth library contains basic information about authenticated user and contains folowing fields:
+username, password,email
+
 ####  Product
+- Product model made to represent webshop product containing all relevant fields giving user/customer information they need to make a desired purchase
+
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
 |category       | category      | ForeignKey| 'Category', null=True, blank=True, on_delete=models.SET_NULL|
@@ -158,6 +228,10 @@ Price ,rating, and alphabet ||
 
 
 ####  Category
+
+- Model made to clearly separate usage and desing of various webshop products
+containing bellow stated fields
+
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
 |name      | name   | CharField|  max_length=254|
@@ -167,6 +241,10 @@ Price ,rating, and alphabet ||
 
 
 ####   CustomerProfile
+
+- Model representing an account of a registered user containing
+following fields:
+
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
 |user       | user     | OneToOneField|  User, on_delete=models.CASCADE|
@@ -181,6 +259,8 @@ Price ,rating, and alphabet ||
 
 
 ####  Contact
+
+- Model made with purpose of storing contact info between user and business with bellow stated fields:
 
   INQUIRY_CHOICES = [
         ('', 'Purpose of Inquiry'),
@@ -203,17 +283,30 @@ Price ,rating, and alphabet ||
 
 
 
-####  model
+#### Order
+
+- Model storing iforation relevant to customer webshop order ,containing
+fields:
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
+|order_number       | order_number     | CharField|  max_length=32, null=False, editable=False|
+|user_profile        |user_profile       | ForeignKey|  CustomerProfile,
+                                     on_delete=models.SET_NULL, null=True,
+                                     blank=True, related_name='orders'|
+|full_name        | full_name    | CharField|  max_length=50, null=False, blank=False|
+| email     | email    | EmailField| max_length=254, null=False, blank=False|
+|phone_number       | phone_number     | CharField|  max_length=20, null=False, blank=False|
+| country       | country      | CountryField|  blank_label='Country *', null=False, blank=False|
+| postcode      | postcode     | CharField|  max_length=20, null=True, blank=True|
+| town_or_city      |  town_or_city    | CharField|  max_length=40, null=False, blank=False|
+|street_address1       | street_address1     | CharField|  max_length=80, null=False, blank=False|
+|street_address2       | street_address2     | CharField|  max_length=80, null=False, blank=False|
+|county        | county      | CharField|  max_length=80, null=True, blank=True|
+|date       | date     | DateTimeField|  auto_now_add=True|
+|order_total       | order_total     | DecimalField|  max_digits=10, decimal_places=2, null=False, default=0|
+|grand_total       | grand_total     | DecimalField|  max_digits=10, decimal_places=2, null=False, default=0|
+|original_cart       | original_cart     | TextField|  null=False, blank=False, default=''|
+|stripe_pid       | stripe_pid     | CharField|  max_length=254, null=False, blank=False, default=''|
 
 
 ####  model
