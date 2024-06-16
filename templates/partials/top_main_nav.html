@@ -1,16 +1,16 @@
 <!-- Main navigation -->
-<nav class="navbar navbar-expand-lg navbar-light py-0">
+<nav class="navbar top navbar-expand-lg navbar-light py-0">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-left " aria-label="icon button">
+        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample-left " aria-label="sidebar opening button">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'home:home' %}">
             <img src="{{ MEDIA_URL }}logo.png" alt="" class="my-logo img-fluid">
         </a>
         <div class="d-flex d-lg-none align-items-center">
-            <div class="dropdown">
+            <div class="dropdown d-none d-xl-block d-lg-block">
                 <button type="button" id="dropdownProfile1" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false" aria-label="icon button">
+                    aria-expanded="false" aria-label="user profile dropdown menu button">
                     <i class="bi bi-person" style="font-size:1.5rem; -webkit-text-stroke-width: 1px;"></i></button>
 
                 <ul class="dropdown-menu " aria-labelledby="dropdownProfile1">
@@ -28,8 +28,8 @@
                     {% endif %}
                 </ul>
             </div>
-            <div>
-                <a href="{% url 'wishlist:wishlist' %}"  role="button" class="btn py-3">
+            <div class="position-relative d-none d-xl-block d-lg-block">
+                <a href="{% url 'wishlist:wishlist' %}"  role="button" class="btn py-3" ria-label="wishlist button ">
                     <i class="bi bi-suit-heart" style="font-size:1.5rem; -webkit-text-stroke-width: 1px; color: white"></i>
                 </a>
                 <span class="heart-total">{{ wishlist_count}}</span>
@@ -59,9 +59,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products:store_products' %}">Products</a>
-                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -121,8 +118,8 @@
                         {% endif %}
                     </ul>
                 </div>
-                <div>
-                    <a href="{% url 'wishlist:wishlist' %}"  role="button" class="btn py-3">
+                <div class="position-relative">
+                    <a href="{% url 'wishlist:wishlist' %}"  role="button" class="btn py-3" aria-label="wishlist button ">
                         <i class="bi bi-suit-heart" style="font-size:1.3rem; -webkit-text-stroke-width: 1px; color: white"></i>
                     </a>
                     <span class="heart-total">{{ wishlist_count}}</span>

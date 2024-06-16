@@ -120,6 +120,9 @@ input::placeholder {
 
 /* end new carousel */
 
+.navbar > .top{
+  min-height: 80px;
+}
 
 .cart-total{
 
@@ -149,7 +152,7 @@ input::placeholder {
   font-size: 8pt;
   text-align: center;
   line-height: 17px;
-  right: 102px;
+  right: 0px;
   font-weight: 700;
   top: 12px;
   z-index: 50;
@@ -588,4 +591,13 @@ message-container{
   /* opacity:0.3; */
   font-size:13px;
   margin-bottom:0;
+}
+
+
+/* mailchimp sign up */
+#mc_embed_signup {
+  background: #c0c0aa;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 600px;
 }
