@@ -105,12 +105,16 @@
                             <div class="p-5">
                                 <h3 class="fw-bold mb-5 mt-2 pt-1" id="subtotal">Summary</h3>
                                 <hr class="my-4">
-
+                                {% for product_id,product in cart_data.items %}
                                 <div class="d-flex justify-content-between mb-4">
-                                    <h5 class="text-uppercase"></h5>
-                                    <h5></h5>
-                                </div>
+                                    <div>{{product.name}}</div>
+                                    <div>quantity: {{product.qty}}</div>
 
+                                    {% with qty=quantity %}
+                                    <p>€ {{ product.price | calc_subtotal:product.qty }}</p>
+                                    {% endwith %}
+                                </div>
+                                {% endfor %}
 
                                 <hr class="my-4">
 
