@@ -18,22 +18,19 @@
     <div class="row d-flex justify-content-center">
         <div class=" col-xl-5 col-md-12 about-us-section">
             <h2 class="p-3 w-50 mx-auto">About Us</h2>
-            <p class="p-3 w-50 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis dicta
-                nulla eaque doloremque!
-                Commodi id aperiam ab illum quaerat delectus mollitia repellendus neque amet voluptatum, eaque voluptate
-                esse quam corrupti repudiandae fuga optio dolorum quod enim nulla. Ab nam facere exercitationem harum
-                veniam saepe cupiditate eveniet, tenetur incidunt repellat illo voluptate id eum quam inventore soluta
-                consectetur eaque sed? Voluptates magni voluptatem cumque ullam odit! Fugiat dolores consequuntur
-                beatae!
+            <p class="p-3 mx-auto">Welcome to BellaCuccina Market, your premier online destination for the finest Italian culinary delights.
+                 At BellaCuccina, we are passionate about bringing the rich and diverse flavors of Italy directly to your doorstep.
+                  Our carefully curated selection features an exquisite range of pasta, cured meats, and fresh produce, ensuring that
+                   every meal you prepare is a true celebration of Italian cuisine.
             </p>
         </div>
-        <div class="col-xl-7 col-md-7 col-12 m-auto p-4"><img src="{{MEDIA_URL}}carousel1.jpg" alt="" class="img-fluid"></div>
+        <div class="col-xl-7 col-md-7 col-12 m-auto p-4 d-flex justify-content-center"><img src="{{MEDIA_URL}}carousel1.jpg" alt="" class="img-fluid"></div>
     </div>
 </div>
 <!-- Contact and Image Section -->
-<div class="row contact-row pt-2">
+<div class="row contact-row pt-2" id="contact">
     <h4 class="text-center fw-bold p-3">Contact Us</h4>
-    <div class="col-md-6 contact-column">
+    <div class="col-md-6 contact-column pb-4">
         <!-- Contact Form will be inserted here -->
         <form action="{% url 'contact_about:contact_about'%}" method="POST">
             {% csrf_token %}
@@ -42,8 +39,8 @@
         </form>
     </div>
     <div class="col-md-6 image-column pt-0">
-        <div class="card ">
-            <img src="{{ MEDIA_URL}}contact_bottom.jpg" alt="" class="card-img-top img-fluid">
+        <div class="d-flex justify-content-center">
+            <img src="{{ MEDIA_URL}}contact_bottom.jpg" alt="" class="card-img-top img-fluid about-img">
         </div>
     </div>
 </div>
