@@ -1,51 +1,3 @@
-// $(document).ready(function(){
-
-    // $('.review-form').submit(function(event){
-    //     event.preventDefault()
-    //     var _submitBtn = $('.add_review');
-
-    //     var _productId = $('.product-id').val();
-    //     var _user = $('.user').val();
-    //     var _content = $('input[name="content"]').val();
-    //     var createReviewUrl = $(this).data('create-review-url');
-
-
-    //     // console.log(_productId);
-    //     // console.log(_content);
-    //     // console.log(_user);
-    //     // console.log(token);
-    //     // console.log(createReviewUrl);
-
-    //         $.ajax({
-    //                 url: createReviewUrl ,
-    //                 type: 'POST',
-    //                 headers: {
-    //                     'X-CSRFToken': $('#csrf').val()
-    //                 },
-    //                 data: {
-    //                     'user':_user,
-    //                     'product_id': _productId,
-    //                     'content': _content
-    //                 },
-    //                 dataType:'json',
-    //                 beforeSend:function(){
-    //                     _submitBtn.attr('disabled',true);
-
-    //                 },
-    //                 success:function(res){
-    //                     var author=res.author
-    //                     var content=res.content
-    //                     var message=res.message
-    //                     console.log(message);
-    //                     _submitBtn.attr('disabled',false);
-
-    //                     $('.review-form')[0].reset()
-    //                 };
-    //         });
-
-    // });
-
-    
 function appendReview(res){
     var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
     $('.commented-section').prepend(`
@@ -127,7 +79,7 @@ $(document).ready(function(){
 
         var _productId = $('.product-id').val();
         var _user = $('.user').val();
-        var _content = $('input[name="content"]').val();
+        var _content = $('textarea[name="content"]').val();
         var createReviewUrl = $(this).data('create-review-url');
         var editReviewUrl=$('#edit-url').val();
         console.log(editReviewUrl);
@@ -181,11 +133,6 @@ $(document).ready(function(){
 
                             appendReview(res);
                             addDeleteUrl();
-                            // var deleteUrl = $('#delete-url').val()
-                            // $('.delete-form').attr('action',deleteUrl)
-
-                            // console.log(deleteUrl);
-
                             $('.success-modal').modal('show');
                             $('.custom-content').text(res.message);
 
@@ -197,7 +144,6 @@ $(document).ready(function(){
                             edit_container.text(res.content);
                             $('.add_review').text('Comment');
                             editing_content=null;
-                            // $('.success-modal').modal('show');
                             modalFading();
                             $('.custom-content').text(res.message);
                             $('.modal-header').css('border-top','3px solid green');
@@ -214,7 +160,6 @@ $(document).ready(function(){
 
         var dataId = $(this).data('id');
         console.log(dataId);
-        // console.log('yes');
 
     }).on('click', '.edit_review', function(event){
         event.stopPropagation();
@@ -227,7 +172,6 @@ $(document).ready(function(){
         console.log(review_id);
 
         $('#id_content').val(editing_content);
-        // $('#review-id').val(review_id)
         $('.product-id').val(review_id);
 
         $('#id_content').focus();
