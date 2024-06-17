@@ -363,6 +363,7 @@ fields:
 <details><summary>Home page</summary>
   <img src="docs/wireframes/home_page.png" >
 </details>
+</details>
 
 
 ## Agile Design
@@ -383,11 +384,14 @@ fields:
 - I started by creating a user story template using GitHub issues. As the project progressed, these initial rough sketches evolved and were refined into complete user stories.
 
 <details><summary> Template for User story </summary>
-<img src="">
+<img src="docs/agile/user_story_template.png">
 </details>
 <details><summary> User story ticket</summary>
-<img src="">
+<img src="docs/agile/user_story_ticket.png">
 </details>
 <details><summary> User story finished</summary>
-<img src="">
+<img src="docs/agile/user_story_finished.png">
 </details>
+
+
+Using Agile methodologies for my solo e-commerce project, I made steady progress by breaking tasks into smaller parts. This approach allowed me to prioritize and deliver important features step by step. With continuous feedback and adjustments, I improved the development environment, implemented crucial functionalities, and built a user-friendly e-commerce platform. Agile proved to be a valuable framework, helping me navigate complexities, achieve tangible results, and prioritize user satisfaction.
