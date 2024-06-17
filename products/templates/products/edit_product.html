@@ -27,53 +27,54 @@
                 </a>
                 {% endif %}
             </div>
-            <div class="col-12 col-md-6 mt-3 pb-3 pt-2">
-                <form enctype="multipart/form-data" method="POST" action="{% url 'products:edit_product' product.id %}"
-                    class="mb-2 product-form ">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            {{ form.category|as_crispy_field }}
-                        </div>
-                        <div class="col-md-6">
-                            {{ form.item_no|as_crispy_field }}
-                        </div>
+        </div>
+        <div class="col-12 col-md-6 mt-3 pb-3 pt-2">
+            <form enctype="multipart/form-data" method="POST" action="{% url 'products:edit_product' product.id %}"
+                class="mb-2 product-form ">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.category|as_crispy_field }}
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            {{ form.name|as_crispy_field }}
-                        </div>
-                        <div class="col-md-6">
-                            {{ form.price|as_crispy_field }}
-                        </div>
+                    <div class="col-md-6">
+                        {{ form.item_no|as_crispy_field }}
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            {{ form.description|as_crispy_field }}
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.name|as_crispy_field }}
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            {{ form.weight|as_crispy_field }}
-                        </div>
+                    <div class="col-md-6">
+                        {{ form.price|as_crispy_field }}
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            {{ form.image_url|as_crispy_field }}
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.description|as_crispy_field }}
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            {{ form.image|as_crispy_field }}
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.weight|as_crispy_field }}
                     </div>
-                    <div class="text-right">
-                        <a class="btn btn-danger rounded-0" href="">Cancel</a>
-                        <button class="btn btn-success rounded-0" type="submit">Edit Product</button>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.image_url|as_crispy_field }}
                     </div>
-                </form>
-            </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.image|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="text-right">
+                    <a class="btn btn-danger rounded-0" href="">Cancel</a>
+                    <button class="btn btn-success rounded-0" type="submit">Edit Product</button>
+                </div>
+            </form>
         </div>
     </div>
-    {% include 'partials/footer.html' %}
-    {% endblock %}
+</div>
+{% include 'partials/footer.html' %}
+{% endblock %}
