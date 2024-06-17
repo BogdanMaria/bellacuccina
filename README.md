@@ -199,6 +199,29 @@ Price ,rating, and alphabet ||
 ### Fonts
 
 ## Project Structure 
+### Structure of Code
+
+- This e-commerce project is structured using Django framework
+and it is organized in app structure with apps clearly defining its purpose
+and apps are as follows:
+- Home - App contains landing page about webshop with a
+call to action redirecting user to an all product pages, simple and intuitive navigation, footer with social media links and newsletter section.
+
+- Products - app containing all product page with list of all products
+,search and filter functionality and also add to cart and wishlist option buttons. Products are displayed within cards with 2 links(click on product image or an eye button) to a product detail page.
+- Product detail page with adding,updating product quantity to shopping cart, Reviews section where authenticated user can add product reviews.
+site owner CRUD functionality is part of this app also with included add and edit templates and delete button with confirmation modal for site owner.
+
+- Shopping cart - App contains a cart template and functionality to view , update quantity remove and add to wishlist products inside shopping cart
+
+- Checkout - the app is constructed to handle a payment form, list of products to be purchased and total amount of users order.
+
+- Customer profile - app containing user account/profile data that can be updated and prefilled to make checkout experience smoother
+
+- Reviews - app responsible for handling product reviews functionality
+with review form, and full CRUD functionality
+
+- Wishlist -app containing list of products that authenticated user can save to purchase or have as an products to review for later
 
 
 ##### Back to [top](#table-of-contents)
@@ -286,14 +309,13 @@ following fields:
 
 #### Order
 
-- Model storing iforation relevant to customer webshop order ,containing
+- Model storing information relevant to customer webshop order ,containing
 fields:
+
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
 |order_number       | order_number     | CharField|  max_length=32, null=False, editable=False|
-|user_profile        |user_profile       | ForeignKey|  CustomerProfile,
-                                     on_delete=models.SET_NULL, null=True,
-                                     blank=True, related_name='orders'|
+|user_profile        |user_profile       | ForeignKey|  CustomerProfile,on_delete=models.SET_NULL, null=True,blank=True, related_name='orders'|
 |full_name        | full_name    | CharField|  max_length=50, null=False, blank=False|
 | email     | email    | EmailField| max_length=254, null=False, blank=False|
 |phone_number       | phone_number     | CharField|  max_length=20, null=False, blank=False|
@@ -310,30 +332,28 @@ fields:
 |stripe_pid       | stripe_pid     | CharField|  max_length=254, null=False, blank=False, default=''|
 
 
-####  model
+####  OrderLineItem
+
+- model representing single product in a user order
+
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
+| order      | order     | ForeignKey|  Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'|
+|product       | product    | ForeignKey|  Product, null=False,blank=False, on_delete=models.CASCADE|
+|quantity       | quantity     | IntegerField|  null=False, blank=False, default=0|
+|lineitem_total      | lineitem_total    | DecimalField|  max_digits=6,decimal_places=2, null=False blank=False, editable=False|
 
 
-####  model
+####  Review
+
+- Model representing reviews for each product
+
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
-|user       | user     | OneToOneField|  User|
+| author     | author    | ForeignKey|  User,on_delete=models.SET_NULL,null=True, blank=True|
+|product      | product     |ForeignKey|  Product, on_delete=models.CASCADE|
+|content       | content      | CharField|  max_length=1024|
+|time_posted        | time_posted     | TimeField|  auto_now_add=True|
 
 
 ### Wireframes
@@ -342,4 +362,32 @@ fields:
 
 <details><summary>Home page</summary>
   <img src="docs/wireframes/home_page.png" >
+</details>
+
+
+## Agile Design
+
+### Overview
+
+- For this project Agile principles and design was implemented from a start since this was the 2nd time in my development career that im implementing agile. While process was familiar, plan was set from beginning and it was adjusted along the way. Drawing from my previous experience, I knew that Agile would empower me to embrace change and prioritize tasks efficiently, ensuring that I consistently delivered incremental value to my project.I leveraged techniques such as user stories,kanban boards an milestones to maintain a clear project vision.This time kanban board are constructed by iterations(sprints)This iterative development cycle gave mae a regular chance to review and try to refine my work.Overall, learning and implementing Agile as a solo developer working on my e-commerce project has been a highly rewarding experience.By implementing Agile principles and design, I was confident in delivering a high-quality and user-focused e-commerce solution.
+
+### Epics(Milestones)
+- By effectively leveraging GitHub's 'Milestones' feature and thoughtfully connecting user stories to their corresponding tasks.
+
+<details><summary>See epics</summary>
+<img src="">
+</details>
+
+### User stories
+
+- I started by creating a user story template using GitHub issues. As the project progressed, these initial rough sketches evolved and were refined into complete user stories.
+
+<details><summary> Template for User story </summary>
+<img src="">
+</details>
+<details><summary> User story ticket</summary>
+<img src="">
+</details>
+<details><summary> User story finished</summary>
+<img src="">
 </details>
