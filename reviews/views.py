@@ -3,8 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from datetime import datetime
-from django.views.decorators.cache import cache_control
+from django.utils import timezone
 
 from .models import Review
 from .forms import ReviewForm
@@ -22,8 +21,6 @@ def create_review(request):
         content = request.POST['content']
         current_time = request.POST['current_time']
         user = User.objects.get(username=username)
-        date_time = datetime.now().date().strftime('%m/%d/%Y')
-        print(date_time)
 
         review = Review.objects.create(
             author=user,
@@ -48,8 +45,7 @@ def update_review(request):
     if request.method == 'POST':
         content = request.POST['content']
         id = int(request.POST['product_id'])
-        print(content)
-        print(id)
+        current_time = request.POST['current_time']
         review = Review.objects.get(id=id)
         try:
             review = get_object_or_404(Review, pk=id)
@@ -64,6 +60,7 @@ def update_review(request):
         # review.content = content
         if request.user == review.author:
             review.content = content
+            review.time_posted = timezone.now()
             review.save()
             my_message = f'Review succesfully updated'
         else:
