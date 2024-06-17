@@ -212,6 +212,11 @@ $(document).ready(function () {
 
 });
 
+$(window).on('popstate', function() {
+    updateCartTotal();
+    updateWishlistTotal();
+
+});
 
 // modal fade after 2 sec
 function modalFading(){
