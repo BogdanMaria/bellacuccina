@@ -32,16 +32,16 @@ function updateCartTotal() {
       dataType: 'json',
       success: function(res) {
         var totalItems = res.total_items;
-        var total_price = res.total_price;
+        var total_price = res.total_price
         $('.cart-total').text(totalItems);
-        $('.cart-total-bottom').text(totalItems);
         if(total_price == 0){
             $('.price').text('$0.00');
 
         }else{
-            $('.price').html('$'+ total_price);
+            $('.price').html('$'+total_price);
 
         }
+
       }
     });
   }
@@ -92,7 +92,6 @@ $('#addToCartBtn').on('click', function(){
             updateCartTotal()
             $('.success-modal').modal('show');
             $('.custom-content').text(message)
-            console.log(res.data);
             $('.product-qty').removeClass('is-invalid')
             $('#Error').remove()
             $('.product-qty').val(1)
