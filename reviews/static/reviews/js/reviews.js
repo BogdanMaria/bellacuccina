@@ -1,4 +1,4 @@
-function appendReview(res){
+function appendReview(res) {
     var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
     var now = new Date();
     var currentDate = now.toDateString();
@@ -32,12 +32,15 @@ function appendReview(res){
 
 
     <div class="user-comments mt-2 pb-0">
+        <div class="d-flex flex-column align-items-start commented-user mt-2 mb-2" >
+                <div class="d-flex gap-2 ">
+                    <h5 class="mr-2 mb-0 ml-1 fw-bold text-capitalize">${ res.author } </h5>
+                    <small class="text-muted text-decoration-underline bg-white">${currentDate}</small>
+                </div>
+                ⭐️⭐️⭐️⭐️⭐️
 
-
-        <div class="d-flex flex-row align-items-center commented-user mt-2 mb-2" >
-            <h5 class="mr-2">${ res.author } </h5>
-            <span class="mb-1 ml-2 text-muted">${ res.time_posted }</span>
         </div>
+        
         <div class="comment-text-sm review_content" data-id="${ res.id }" >
             <span>${ res.content }</span>
             <div class="d-flex">
@@ -54,11 +57,11 @@ function appendReview(res){
     `);
 }
 
-function addDeleteUrl(){
+function addDeleteUrl() {
 
-    if($('.delete-form')){
+    if ($('.delete-form')) {
         var deleteUrl = $('#delete-url').val();
-        $('.delete-form').attr('action',deleteUrl);
+        $('.delete-form').attr('action', deleteUrl);
 
     }
 
@@ -66,7 +69,7 @@ function addDeleteUrl(){
 
 
 //
-$(document).ready(function(){
+$(document).ready(function () {
 
     addDeleteUrl();
     var editing_content = null;
@@ -74,7 +77,7 @@ $(document).ready(function(){
     var edit_container = null;
 
 
-    $('.review-form').submit(function(event){
+    $('.review-form').submit(function (event) {
         event.preventDefault();
         var _submitBtn = $('.add_review');
         // setting default value since im using product id to pass revie id in a view
@@ -84,23 +87,25 @@ $(document).ready(function(){
         var _user = $('.user').val();
         var _content = $('textarea[name="content"]').val();
         var createReviewUrl = $(this).data('create-review-url');
-        var editReviewUrl=$('#edit-url').val();
-        // console.log(editReviewUrl);
+        var editReviewUrl = $('#edit-url').val();
 
         // var currentTime = new Date().toDateString();
-        var now = new Date();
-        const currentTime = now.getHours() + ':' + now.getMinutes()
-        $('.current-time').text('yes');
+        var currentTime = new Date().toLocaleString('en-US', {
+            hour: 'numeric', minute: 'numeric', hour12: true
+        });
+        // var now = new Date();
+        // const currentTime = now.getHours() + ':' + now.getMinutes()
+        // $('.current-time').text('yes');
         // console.log(currentTime);
 
         var url;
 
 
         // try
-        if (editing_content === null){
-                url=createReviewUrl;
+        if (editing_content === null) {
+            url = createReviewUrl;
 
-        }else{
+        } else {
             url = editReviewUrl;
             data = {
 
@@ -112,66 +117,65 @@ $(document).ready(function(){
 
             };
         }
-            $.ajax({
-                    url: url,
-                    type: 'POST',
-                    cache: false,
-                    headers: {
-                        'X-CSRFToken': $('#csrf').val()
-                    },
-                    data: {
+        $.ajax({
+            url: url,
+            type: 'POST',
+            cache: false,
+            headers: {
+                'X-CSRFToken': $('#csrf').val()
+            },
+            data: {
 
-                        'user':_user,
-                        'product_id': _productId,
-                        'content': _content,
-                        'current_time': currentTime
+                'user': _user,
+                'product_id': _productId,
+                'content': _content,
+                'current_time': currentTime
 
-                    },
-                    dataType:'json',
-                    beforeSend:function(){
-                        _submitBtn.attr('disabled',true);
+            },
+            dataType: 'json',
+            beforeSend: function () {
+                _submitBtn.attr('disabled', true);
 
-                    },
-                    success:function(res){
+            },
+            success: function (res) {
 
-                        if(res.status==='created'){
+                if (res.status === 'created') {
 
-                            appendReview(res);
-                            addDeleteUrl();
-                            $('.success-modal').modal('show');
-                            $('.custom-content').text(res.message);
+                    appendReview(res);
+                    addDeleteUrl();
+                    $('.success-modal').modal('show');
+                    $('.custom-content').text(res.message);
 
-                        }
-                        else if(res.status==='edited'){
-                            console.log(res.content);
+                } else if (res.status === 'edited') {
+                    console.log(res.content);
 
 
-                            edit_container.text(res.content);
-                            $('.add_review').text('Comment');
-                            editing_content=null;
-                            modalFading();
-                            $('.custom-content').text(res.message);
-                            $('.modal-header').css('border-top','3px solid green');
-                            $('.review-form')[0].reset();
-                            $('.product-id').val(_default_product_id);
-                        }
-                        _submitBtn.attr('disabled',false);
-                        $('.review-form')[0].reset();
-                    }
-            });
+                    edit_container.text(res.content);
+                    $('.add_review').text('Comment');
+                    editing_content = null;
+                    modalFading();
+                    $('.custom-content').text(res.message);
+                    $('.modal-header').css('border-top', '3px solid green');
+                    $('.review-form')[0].reset();
+                    $('.product-id').val(_default_product_id);
+                }
+                _submitBtn.attr('disabled', false);
+                $('.review-form')[0].reset();
+            }
+        });
     });
 
-    $('.commented-section').on('click', '.review_content', function(){
+    $('.commented-section').on('click', '.review_content', function () {
 
         var dataId = $(this).data('id');
         console.log(dataId);
 
-    }).on('click', '.edit_review', function(event){
+    }).on('click', '.edit_review', function (event) {
         event.stopPropagation();
-        editing_content=$(this).parent().parent().children().first().text();
-        edit_container=$(this).parent().parent().children().first();
+        editing_content = $(this).parent().parent().children().first().text();
+        edit_container = $(this).parent().parent().children().first();
         console.log(edit_container);
-        review_id=$(this).parent().parent().attr('data-id');
+        review_id = $(this).parent().parent().attr('data-id');
 
         console.log(editing_content);
         console.log(review_id);
@@ -184,3 +188,11 @@ $(document).ready(function(){
     });
 
 });
+
+
+function updateTimestamp(){
+    var newStamp='{{ review.time_posted|timesince:review.time_posted }}'
+    $('.timestamp').text(newStamp)
+
+
+}

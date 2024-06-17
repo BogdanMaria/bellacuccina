@@ -22,10 +22,11 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form action="{% url 'wishlist:add_to_wishlist' %}" method="POST" enctype = "multipart/form-data" >
+            <form action="{% url 'wishlist:add_to_wishlist' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="hidden" name="product-id" value="{{ product.id }}" >
-                <button class="btn btn-dark rounded-0 mt-3" id="wish">Add to wishlist <i class="bi bi-suit-heart-fill"></i></button>
+                <input type="hidden" name="product-id" value="{{ product.id }}">
+                <button class="btn btn-dark rounded-0 mt-3" id="wish">Add to wishlist <i
+                        class="bi bi-suit-heart-fill"></i></button>
                 <input type="hidden" name="my_redirect_url" value="{{ request.path }}">
             </form>
             {% if request.user.is_superuser %}
@@ -33,7 +34,8 @@
                 <small class="ml-3">
                     <a class="btn btn-primary mt-3" href="{% url 'products:edit_product' product.id %}">
                         <i class="bi bi-pencil-square"></i>Edit</a>
-                    <button class="btn btn-danger mt-3 shadow-none" aria-label="delete-product-button" data-bs-toggle="modal" data-bs-target="#modal_{{product_id}}">
+                    <button class="btn btn-danger mt-3 shadow-none" aria-label="delete-product-button"
+                        data-bs-toggle="modal" data-bs-target="#modal_{{product_id}}">
                         <i class="bi bi-trash3"></i>
 
                     </button>
@@ -123,24 +125,26 @@
                 <div class="user-comments mt-2 pb-0">
 
                     <div class="d-flex flex-column align-items-start commented-user mt-2 mb-2">
-                        <div class="d-flex gap-2">
-                            <span class=" px-2 pb-1 bg-black  rounded-circle">
-                                <span
-                                    class="py-1 fw-light text-white">{{ review.author|default:''|stringformat:'s'|slice:":1" }}</span>
-                            </span>
-                            <h5 class="mr-2 mb-0 ml-1">{{ review.author }} </h5>
+                        <div class="d-flex gap-2 ">
+                            <h5 class="mr-2 mb-0 ml-1 fw-bold text-capitalize">{{ review.author }} </h5>
+                            <small
+                                class="timestamp text-muted text-decoration-underline bg-white">{{ review.time_posted|timesince }}
+                                ago</small>
                         </div>
-                        <span class="mb-1 ml-2 text-muted">{{ review.time_posted}}</span>
+                        ⭐️⭐️⭐️⭐️⭐️
                     </div>
 
                     <div class="comment-text-sm review_content" data-id="{{ review.id }}">
                         <span>{{ review.content }}</span>
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-end">
                             {% if request.user == review.author %}
-                            <button class="btn edit_review py-0 edit_reviewtext-primary shadow-none" aria-label="update-review-button">
-                                <i class="bi bi-pencil-square" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
+                            <button class="btn edit_review py-0 edit_reviewtext-primary shadow-none"
+                                aria-label="update-review-button">
+                                <i class="bi bi-pencil-square"
+                                    style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
                             </button>
-                            <button class="btn  mt-3 text-danger shadow-none" aria-label="delete-product-button" data-bs-toggle="modal" data-bs-target="#modal_{{ review.id }}">
+                            <button class="btn  mt-3 text-danger shadow-none" aria-label="delete-product-button"
+                                data-bs-toggle="modal" data-bs-target="#modal_{{ review.id }}">
                                 <i class="bi bi-trash" style="font-size:1.2rem; -webkit-text-stroke-width: 1px;"></i>
                             </button>
                             {% else %}
