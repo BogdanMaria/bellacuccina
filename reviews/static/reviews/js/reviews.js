@@ -1,5 +1,8 @@
 function appendReview(res){
     var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
+    var now = new Date();
+    var currentDate = now.toDateString();
+    const currentTime = now.getHours() + ':' + now.getMinutes().toString().padStart(2, '0')
     $('.commented-section').prepend(`
          <div class="modal fade review" tabindex="-1" id="modal_${res.id}">
     <div class="modal-dialog custom-modal-dialog ">
@@ -82,11 +85,13 @@ $(document).ready(function(){
         var _content = $('textarea[name="content"]').val();
         var createReviewUrl = $(this).data('create-review-url');
         var editReviewUrl=$('#edit-url').val();
-        console.log(editReviewUrl);
+        // console.log(editReviewUrl);
 
-        var currentTime = new Date().toDateString();
-        $('.current-time').val(currentTime);
-        console.log(currentTime);
+        // var currentTime = new Date().toDateString();
+        var now = new Date();
+        const currentTime = now.getHours() + ':' + now.getMinutes()
+        $('.current-time').text('yes');
+        // console.log(currentTime);
 
         var url;
 

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from datetime import datetime
 from django.views.decorators.cache import cache_control
 
 from .models import Review
@@ -12,6 +13,7 @@ from products.models import Product
 @login_required
 def create_review(request):
     """
+    view responsible for creating a product review
     """
     if request.method == 'POST':
         product_id = int(request.POST['product_id'])
@@ -20,6 +22,8 @@ def create_review(request):
         content = request.POST['content']
         current_time = request.POST['current_time']
         user = User.objects.get(username=username)
+        date_time = datetime.now().date().strftime('%m/%d/%Y')
+        print(date_time)
 
         review = Review.objects.create(
             author=user,
