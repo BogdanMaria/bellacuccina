@@ -541,9 +541,19 @@ as the best selling webshop products.
 
 <details><summary>See Filter section</summary>
 
-![Best sellers](docs/features/filter.png)
+![Filter section](docs/features/filter.png)
 
-![Best sellers](docs/features/filter_open.png)
+![Filter section](docs/features/filter_open.png)
 
+
+</details>
+
+2. Product card:
+
+- The Product Card feature enhances the user experience by displaying a visually appealing image of the product along with essential information such as price, weight and interactive button  add to wishlist and button add shopping cart(via AJAX). It provides users with a convenient way to browse, evaluate, and add products to their shopping experience.
+
+<details><summary>See Product card</summary>
+
+![Product Card](docs/features/product_card.png)
 
 </details>
