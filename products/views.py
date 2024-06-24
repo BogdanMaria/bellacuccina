@@ -74,7 +74,7 @@ def product_detail(request, product_id):
         'on_products_page': True,
     }
 
-    return render(request,template, context)
+    return render(request, template, context)
 
 
 @login_required
