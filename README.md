@@ -115,8 +115,14 @@ BellaCuccina Market was born out of a love for authentic Italian food and a desi
 
 ### SEO
 
+- For this project I implemented a strong SEO strategy for my BellaCuccina Market web-shop in my Django project. First, I conducted thorough keyword research to identify the most relevant long and short-tail keywords for my products. I optimized my title tags, meta descriptions, and URLs, ensuring they included these keywords to improve my web-shop's visibility in search engine results. I also focused on creating high-quality content that naturally incorporated the identified keywords. For images, I used descriptive file names and alt tags to enhance their optimization. to improve the visibility of my web-shop in search engine rankings and attract potential customers searching for related products., I strategically used internal and external linking techniques
+
 
 ### Marketing
+
+#### Facebook business page
+
+- To assist with marketing the website and further boost its visibility, I have included a link to the web-shop's own Facebook Business Page in the footer section. This reciprocal link establishes a connection between the website and its social media presence, allowing visitors to easily access the Facebook page for additional updates, promotions, and engagement with the brand. You can visit the web-shop's Facebook page by clicking here.
 
 
 ### Target audience
