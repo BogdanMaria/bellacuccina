@@ -124,6 +124,8 @@ BellaCuccina Market was born out of a love for authentic Italian food and a desi
 
 - To assist with marketing the website and further boost its visibility, I have included a link to the web-shop's own Facebook Business Page in the footer section. This reciprocal link establishes a connection between the website and its social media presence, allowing visitors to easily access the Facebook page for additional updates, promotions, and engagement with the brand. You can visit the web-shop's Facebook page by clicking here.
 
+![Facebook business](docs/facebook.png)
+
 
 ### Target audience
 
