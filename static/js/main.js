@@ -1,10 +1,10 @@
 // filtering functionality on product pages
-$('#sort-selector').change(function() {
+$('#sort-selector').change(function () {
     var selector = $(this);
     var currentUrl = new URL(window.location);
 
     var selectedVal = selector.val();
-    if(selectedVal != "reset"){
+    if (selectedVal != "reset") {
         var sort = selectedVal.split("_")[0];
         var direction = selectedVal.split("_")[1];
 
@@ -21,33 +21,33 @@ $('#sort-selector').change(function() {
 });
 
 
-$('.back-to-top').click(function(e) {
-    window.scrollTo(0,0)
+$('.back-to-top').click(function (e) {
+    window.scrollTo(0, 0)
 });
 
 // updating price and item counter in navbar
 function updateCartTotal() {
     $.ajax({
-      url: '/get_cart_total/',
-      dataType: 'json',
-      success: function(res) {
-        var totalItems = res.total_items;
-        var total_price = res.total_price
-        $('.cart-total').text(totalItems);
-        if(total_price == 0){
-            $('.price').text('$0.00');
+        url: '/get_cart_total/',
+        dataType: 'json',
+        success: function (res) {
+            var totalItems = res.total_items;
+            var total_price = res.total_price
+            $('.cart-total').text(totalItems);
+            if (total_price == 0) {
+                $('.price').text('$0.00');
 
-        }else{
-            $('.price').html('$'+total_price);
+            } else {
+                $('.price').html('$' + total_price);
+
+            }
 
         }
-
-      }
     });
-  }
+}
 
 
-$('#addToCartBtn').on('click', function(){
+$('#addToCartBtn').on('click', function () {
     var _addBtn = $(this);
     var _qty = $('.product-qty').val();
     var _productId = $('.product-id').val();
@@ -64,30 +64,28 @@ $('#addToCartBtn').on('click', function(){
         $('.error-qty').before('<div class="invalid-feedback d-block" id="Error">quantity must be range 1 -10!</div>');
 
         return
-
-
     }
 
 
     // Ajax
     $.ajax({
-        url:'/add_to_cart/',
-        type : 'POST',
+        url: '/add_to_cart/',
+        type: 'POST',
         headers: {
             'X-CSRFToken': $('#csrf_token').val()
         },
-        data:{
-            'id':_productId,
-            'image':_productImage,
-            'qty':_qty,
-            'name':_productName,
-            'price':_productPrice,
+        data: {
+            'id': _productId,
+            'image': _productImage,
+            'qty': _qty,
+            'name': _productName,
+            'price': _productPrice,
         },
-        dataType:'json',
-        beforeSend:function(){
-            _addBtn.attr('disabled',true);
+        dataType: 'json',
+        beforeSend: function () {
+            _addBtn.attr('disabled', true);
         },
-        success:function(res){
+        success: function (res) {
             var message = _productName + ' quantity: ' + _qty + ' added to cart';
             updateCartTotal()
             $('.success-modal').modal('show');
@@ -96,14 +94,14 @@ $('#addToCartBtn').on('click', function(){
             $('#Error').remove()
             $('.product-qty').val(1)
 
-            _addBtn.attr('disabled',false);
+            _addBtn.attr('disabled', false);
         }
     });
 
 });
 
 
-$('.addToCartBtn').on('click', function(){
+$('.addToCartBtn').on('click', function () {
     var _addBtn = $(this);
     var _qty = 1;
     var _productName = $(this).closest('.all_products').find('.product-name').val();
@@ -112,37 +110,38 @@ $('.addToCartBtn').on('click', function(){
     var _productPrice = $(this).closest('.all_products').find('.product-price').val();
 
     $.ajax({
-        url:'/add_to_cart/',
-        type : 'POST',
+        url: '/add_to_cart/',
+        type: 'POST',
         headers: {
             'X-CSRFToken': $(this).closest('.all_products').find('.csrf_token').val()
         },
-        data:{
-            'id':_productId,
-            'image':_productImage,
-            'qty':_qty,
-            'name':_productName,
-            'price':_productPrice,
+        data: {
+            'id': _productId,
+            'image': _productImage,
+            'qty': _qty,
+            'name': _productName,
+            'price': _productPrice,
         },
 
-        dataType:'json',
-        beforeSend:function(){
+        dataType: 'json',
+        beforeSend: function () {
 
-            _addBtn.attr('disabled',true);
+            _addBtn.attr('disabled', true);
         },
-        success:function(res){
+        success: function (res) {
             var message = _productName + ' quantity: ' + _qty + ' added to cart';
             updateCartTotal()
             $('.success-modal').modal('show');
             $('.custom-content').text(message)
-            _addBtn.attr('disabled',false);
+            _addBtn.attr('disabled', false);
             console.log(res.data);
         }
-    });wishlist_products
+    });
+    wishlist_products
 });
 
 // ajax call for adding product to shopping cart from wishlist page
-$('.addToCartBtnWish').on('click', function(){
+$('.addToCartBtnWish').on('click', function () {
     var _addBtn = $(this);
     var _qty = 1;
     var _productName = $(this).closest('.wishlist_products').find('.product-name').val();
@@ -151,54 +150,54 @@ $('.addToCartBtnWish').on('click', function(){
     var _productPrice = $(this).closest('.wishlist_products').find('.product-price').val();
 
     $.ajax({
-        url:'/add_to_cart/',
-        type : 'POST',
+        url: '/add_to_cart/',
+        type: 'POST',
         headers: {
             'X-CSRFToken': $(this).closest('.wishlist_products').find('.csrf_token').val()
         },
-        data:{
-            'id':_productId,
-            'image':_productImage,
-            'qty':_qty,
-            'name':_productName,
-            'price':_productPrice,
+        data: {
+            'id': _productId,
+            'image': _productImage,
+            'qty': _qty,
+            'name': _productName,
+            'price': _productPrice,
         },
 
-        dataType:'json',
-        beforeSend:function(){
+        dataType: 'json',
+        beforeSend: function () {
 
-            _addBtn.attr('disabled',true);
+            _addBtn.attr('disabled', true);
         },
-        success:function(res){
+        success: function (res) {
             var message = _productName + ' quantity: ' + _qty + ' added to cart';
             $('.custom-content').text(message)
             updateCartTotal()
             $('.success-modal').modal('show');
-            _addBtn.attr('disabled',false);
+            _addBtn.attr('disabled', false);
         }
     });
 })
 
 // updating wishlist counters in top and bottom nav bar
-function updateWishlistTotal(){
+function updateWishlistTotal() {
 
     $.ajax({
-      url: '/wishlist/wishlist_total/',
-      dataType: 'json',
-      headers: {
-        'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
-      },
-
-      success: function(res) {
-        var wishlist_count = res.wishlist_count;
-        console.log(wishlist_count);
-        $('.heart-total').text(wishlist_count);
-        $('.heart-total-bottom').text(wishlist_count);
+        url: '/wishlist/wishlist_total/',
+        dataType: 'json',
+        headers: {
+            'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
         },
-        error:function(xhr, textStatus, errorThrown){
-        var errorMessage = "An error occured" + errorThrown
-        $('#errorModal .error-content').text(errorMessage);
-        $('#errorModal').modal('show');
+
+        success: function (res) {
+            var wishlist_count = res.wishlist_count;
+            console.log(wishlist_count);
+            $('.heart-total').text(wishlist_count);
+            $('.heart-total-bottom').text(wishlist_count);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            var errorMessage = "An error occured" + errorThrown
+            $('#errorModal .error-content').text(errorMessage);
+            $('#errorModal').modal('show');
         }
     });
 
@@ -212,17 +211,12 @@ $(document).ready(function () {
 
 });
 
-$(window).on('popstate', function() {
-    updateCartTotal();
-    updateWishlistTotal();
-
-});
 
 // modal fade after 2 sec
-function modalFading(){
+function modalFading() {
     $('.success-modal').modal('show');
 
-    setTimeout(function(){
+    setTimeout(function () {
         $('.success-modal').modal('hide');
 
     }, 2000)

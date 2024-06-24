@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect, reverse
+from django.shortcuts import (render, get_object_or_404, HttpResponseRedirect,
+                                redirect, reverse, HttpResponse)
 from django.http import HttpResponseServerError
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -38,7 +39,8 @@ def add_to_wishlist(request):
             messages.success(request, f'{product.name} added to wishlist')
 
         return HttpResponseRedirect(redirect_url)
-
+        
+    return redirect('products:store_products')
 
 
 @login_required
