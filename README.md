@@ -897,3 +897,68 @@ The Order Confirmation Thank You Form Feature serves as a confirmation and ackno
        <details><summary>profile.css</summary>
     <img src="docs/validation/css_validator/profile_css.png" width="800">
     </details>
+
+
+### Html
+
+-  [WC3 Validator](https://validator.w3.org/) was used for the validation of projects html code. All messages hidden are related to the use of Django.
+
+<details><summary>Home</summary>
+<img src="docs/validation/html_validator/home_html.png" width="800">
+</details>
+
+<details><summary>All products</summary>
+<img src="docs/validation/html_validator/all_products_html.png" width="800" >
+</details>
+
+<details><summary>Product detail</summary>
+<img src="docs/validation/html_validator/product_det_html.png" width="800" >
+</details>
+
+<details><summary>Shopping cart</summary>
+<img src="docs/validation/html_validator/shop_cart_html.png" width="800" >
+</details>
+
+<details><summary>Checkout</summary>
+<img src="docs/validation/html_validator/ceckout_html.png" width="800" >
+</details>
+
+<details><summary>Checkout success</summary>
+<img src="docs/validation/html_validator/success_check_html.png" width="800" >
+</details>
+
+<details><summary>Profile</summary>
+<img src="docs/validation/html_validator/profile_html.png" width="800"  >
+</details>
+
+<details><summary>Wishlist</summary>
+<img src="docs/validation/html_validator/wishlist_html.png" width="800" >
+</details>
+
+<details><summary>About</summary>
+<img src="docs/validation/html_validator/about_html.png" width="800" >
+</details>
+
+<details><summary>Add product</summary>
+<img src="docs/validation/html_validator/add_product_html.png" width="800">
+</details>
+
+<details><summary>Login</summary>
+<img src="docs/validation/html_validator/login_html.png" width="800" >
+</details>
+
+<details><summary>Logout</summary>
+<img src="docs/validation/html_validator/logout_html.png" width="800" >
+</details>
+
+<details><summary>Register</summary>
+<img src="docs/validation/html_validator/register_html.png" width="800" >
+</details>
+
+<details><summary>404 error</summary>
+<img src="docs/validation/html_validator/404_html.png" width="800" >
+</details>
+
+<details><summary>500 error</summary>
+<img src="docs/validation/html_validator/500_html.png" width="800" >
+</details>
