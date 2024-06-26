@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
+from django.core.exceptions import PermissionDenied
 
 
 def home(request):
@@ -8,5 +9,5 @@ def home(request):
     """
     template = 'home/index.html'
 
-    # return render(request, template)
-    raise Http404("Page not found")
+    return render(request, template)
+    
