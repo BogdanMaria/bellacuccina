@@ -9,24 +9,16 @@
   }
 
   .about-us-section {
-    background-color: white;
-    /* border: 1px solid #ccc; */
+    background-color: white;  
     padding: 20px;
   }
 
   .image-column {
     background-color: white;
-
-    /* border: 1px solid #ccc; */
     padding: 20px;
     position: relative;
   }
 
-  .overlap-container {
-    /* height: 400px; */
-
-
-  }
 
   .overlap-image1 {
 

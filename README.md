@@ -191,20 +191,26 @@ Price ,rating, and alphabet
 31. As a site owner, I want to ensure that error pages allow users to easily return to valid areas of the site without relying on browser controls.
 
 
-| id  |  content | Github issue Numb
-| ------ | ------ | ------ |
-|  [#1](https://github.com/BogdanMaria/bellacuccina/issues/1#issue-2300158963) | As an unauthenticated user/customer, I would like website navigation to be fast and easy|  |
-|  [#2](https://github.com/BogdanMaria/bellacuccina/issues/3#issue-2300171942) | As an unauthenticated user/customer, I would like the ability to browse through all the products available on the site.|  |
-|  [#3](https://github.com/BogdanMaria/bellacuccina/issues/2#issue-2300163971) | As an unauthenticated user/customer, I would like to search the website to see what kind of product are offered to purchase|  |
-|  [#4](https://github.com/BogdanMaria/bellacuccina/issues/4#issue-2300177757) | A s an unauthenticated user/customer, I would like to see a details of a products on a website such as(description, price)|  |
-|  [#5](https://github.com/BogdanMaria/bellacuccina/issues/5#issue-2300181182) | As an unauthenticated user/customer, I would like functionality to refine my search of products on a website by
-Price ,rating, and alphabet ||
-
 ## Design
 ***
-### Colours
+### Colors
+
+- In this project a carefully curated color palette has been implemented to create a visually appealing and user-friendly experience. The use of dark colors in the navigation and footer sections adds sophistication and draws attention to important elements, while a light background enhances readability and creates a pleasant browsing experience. The contrast between dark and light elements strikes a perfect balance between aesthetics and usability, showcasing the products effectively and providing an enjoyable browsing experience.
+
+<details><summary>See color palette</summary>
+<img src="docs/col_palette.png">
+</details>
 
 ### Fonts
+
+- For this Project "Rubik" font was used
+    - The use of Rubik fonts brings numerous benefits. The font family offers a range of weights that allow for clear and legible text, enhancing readability throughout the website. The modern and versatile design of Rubik fonts adds a touch of professionalism and sophistication to the overall aesthetic. With its balanced proportions and clean lines, Rubik fonts create a harmonious visual experience, ensuring that the content is easily digestible and
+    visually appealing to users
+
+<details><summary>See Rubik font</summary>
+<img src="docs/rubik1.png">
+<img src="docs/rubik2.png">
+</details>
 
 ## Project Structure 
 ### Structure of Code
@@ -871,3 +877,23 @@ The Order Confirmation Thank You Form Feature serves as a confirmation and ackno
     1. Gift cards (physical gif-cards in various amounts with web-shop logo)
     2. Add AI powered chatbot function to enhance customer experience and support
     3. Add more types of payment options(paypal, gift-cards,crypto currencies)
+
+
+## Validation
+***
+
+### CSS
+- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)was used  to validate the css in the project
+    - web app passed validator with no errors.
+    <details><summary>base.css</summary>
+    <img src="docs/validation/css_validator/base_css.png" width="800">
+    </details>
+       <details><summary>about.css</summary>
+    <img src="docs/validation/css_validator/about_css.png" width="800">
+    </details>
+       <details><summary>checkout.css</summary>
+    <img src="docs/validation/css_validator/checkout_css.png" width="800">
+    </details>
+       <details><summary>profile.css</summary>
+    <img src="docs/validation/css_validator/profile_css.png" width="800">
+    </details>

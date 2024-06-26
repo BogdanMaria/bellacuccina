@@ -101,11 +101,11 @@ input::placeholder {
 }
 
 .bg-img-2 {
-  background-image: url('/media/carousel2.jpg') center/cover no-repeat;
+  background: url('/media/carousel2.jpg') center/cover no-repeat;
 }
 
 .bg-img-3 {
-  background-image: url('/media/carousel3.jpg') center/cover no-repeat;
+  background: url('/media/carousel3.jpg') center/cover no-repeat;
 }
 
 /* end new carousel */
