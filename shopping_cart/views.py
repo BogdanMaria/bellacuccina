@@ -85,7 +85,7 @@ def update_cart(request, product_id):
     update quantity of tems in a bag to desired value
     """
     product = get_object_or_404(Product, pk=product_id)
-    quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity') or 0)
     cart_data = request.session.get('cart', {})
 
     if quantity > 0:
