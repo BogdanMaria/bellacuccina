@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponseRedirect
+from django.shortcuts import (render, get_object_or_404,
+                              redirect, reverse, HttpResponseRedirect)
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -8,6 +9,7 @@ from django.utils import timezone
 from .models import Review
 from .forms import ReviewForm
 from products.models import Product
+
 
 @login_required
 def create_review(request):
@@ -30,7 +32,8 @@ def create_review(request):
         )
         my_message = f'Review succesfully added'
         data = {'id': review.id, 'author': review.author.username,
-                'product': review.product.name, 'content': review.content,'time_posted':review.time_posted, 'message': my_message, 'status':'created'}
+                'product': review.product.name, 'content': review.content,
+                'time_posted': review.time_posted, 'message': my_message, 'status': 'created'}
     else:
         error = {
             'message': 'An Error ocurred!!'

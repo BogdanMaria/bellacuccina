@@ -58,8 +58,8 @@ def store_products(request):
     }
     my_product = products.filter(image='')
     print(my_product)
-    
     return render(request, template, context)
+
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)

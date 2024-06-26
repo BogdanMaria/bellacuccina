@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect, reverse
+from django.shortcuts import (render, get_object_or_404,
+                              HttpResponseRedirect, redirect, reverse)
 from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.http import JsonResponse

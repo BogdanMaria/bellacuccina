@@ -8,8 +8,6 @@ from django.template.loader import render_to_string
 from .models import Contact
 from .forms import ContactForm
 
-# Create your views here.
-
 
 def contact_about(request):
     """

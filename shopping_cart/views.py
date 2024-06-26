@@ -19,7 +19,6 @@ def cart(request):
     return render(request, template)
 
 
-
 def add_to_cart(request):
 
     cart_item = {}
@@ -55,7 +54,7 @@ def add_to_cart(request):
                      'my_message': my_message,
                      }
     return JsonResponse(response_data)
-    
+
 
 def get_cart_total(request):
     my_msg = ''
@@ -76,8 +75,7 @@ def get_cart_total(request):
         total_price = 0
 
     return JsonResponse({'total_items': total_items,
-                        'message': my_msg,})
-
+                        'message': my_msg})
 
 
 def update_cart(request, product_id):

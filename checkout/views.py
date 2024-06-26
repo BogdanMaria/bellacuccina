@@ -91,7 +91,6 @@ def store_checkout(request):
             messages.error(request, "Your Shopping cart is empty")
             return redirect(reverse('products:store_products'))
 
-
         current_cart = cart_content(request)
         total = current_cart['total']
         stripe_total = round(total * 100)

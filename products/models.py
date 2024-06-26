@@ -7,10 +7,8 @@ class Category(models.Model):
     """
     class for category model
     """
-
     class Meta:
         verbose_name_plural = 'Categories'
-    
     name = models.CharField(max_length=254)
     notes = models.TextField(null=True, blank=True)
     slug = models.SlugField(max_length=254, blank=True, null=True)
@@ -26,7 +24,7 @@ class Category(models.Model):
 def random_generated_string():
     not_unique = True
     while not_unique:
-        key = random.choice(string.ascii_uppercase) + str(random.randrange(100,999))
+        key = random.choice(string.ascii_uppercase) + str(random.randrange(100, 999))
         if not Product.objects.filter(item_no=key):
             not_unique = False
     return str(key)
@@ -34,7 +32,7 @@ def random_generated_string():
 
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    item_no = models.CharField(max_length=254, default=random_generated_string,unique=True )
+    item_no = models.CharField(max_length=254, default=random_generated_string, unique=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)

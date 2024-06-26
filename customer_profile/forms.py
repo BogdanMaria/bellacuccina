@@ -1,10 +1,8 @@
 from django import forms
-
 from .models import CustomerProfile
 
+
 class CustomerProfileForm(forms.ModelForm):
-    # email = forms.EmailField(max_length=50)
-    
     class Meta:
         model = CustomerProfile
         exclude = ('user',)
@@ -23,8 +21,7 @@ class CustomerProfileForm(forms.ModelForm):
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
             'default_county': 'County, State or Locality',
-            'email':'email',
-
+            'email': 'email',
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True

@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Contact
 
 
@@ -7,8 +6,6 @@ class ContactForm(forms.ModelForm):
     """
     Contact model form
     """
-
-
     class Meta:
         model = Contact
         fields = '__all__'
@@ -34,5 +31,3 @@ class ContactForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            # add class to fields
-            # self.fields[field].widget.attrs['class'] = 'my-2'
