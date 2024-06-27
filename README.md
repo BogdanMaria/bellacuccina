@@ -122,7 +122,7 @@ BellaCuccina Market was born out of a love for authentic Italian food and a desi
 
 #### Facebook business page
 
-- To assist with marketing the website and further boost its visibility, I have included a link to the web-shop's own Facebook Business Page in the footer section. This reciprocal link establishes a connection between the website and its social media presence, allowing visitors to easily access the Facebook page for additional updates, promotions, and engagement with the brand. You can visit the web-shop's Facebook page by clicking here.
+- To assist with marketing the website and further boost its visibility, I have included a link to the web-shop's own Facebook Business Page in the footer section. This reciprocal link establishes a connection between the website and its social media presence, allowing visitors to easily access the Facebook page for additional updates, promotions, and engagement with the brand. You can visit the web-shop's Facebook page by clicking [here](https://www.facebook.com/profile.php?viewas=100000686899395&id=61560875649149).
 
 ![Facebook business](docs/facebook.png)
 
@@ -525,8 +525,8 @@ Using Agile methodologies for my solo e-commerce project, I made steady progress
 
 
 - [Bootstrap 5.1](https://getbootstrap.com/). This project uses the Bootstrap library for UI components (Buttons, Card, Footer, Modal, Navbar)
-- [AWS (Amazon Web Services)](https://aws.amazon.com/)
-- [Stripe](https://stripe.com/)
+- [AWS (Amazon Web Services)](https://aws.amazon.com/) was utilized in this project for hosting image files. An S3 bucket on AWS was created to store and serve the project's images, providing a reliable and scalable solution for managing and delivering the visual assets. With AWS, the project benefits from secure and efficient storage capabilities, ensuring seamless access to images throughout the application.
+- [Stripe](https://stripe.com/) Stripe is integrated into the project to handle payment processing. It provides a secure and convenient way to handle online payments, including credit card transactions.
 - [Balsamiq](https://balsamiq.com/) to create the projects wireframes
 - [Am I Responsive](http://ami.responsivedesign.is/) was used for creating the multi-device mock-up at the top of this README.md file
 - [Lucidchart.com](https://www.lucidchart.com/) for creating Entity relationship diagrams(ERD) of my project database
