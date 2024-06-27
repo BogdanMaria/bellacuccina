@@ -93,7 +93,7 @@ def store_checkout(request):
 
         current_cart = cart_content(request)
         total = current_cart['total']
-        stripe_total = round(total * 100)
+        stripe_total = round(total*100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
@@ -124,16 +124,12 @@ def store_checkout(request):
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
 
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-    # print(intent.client_secret)
 
     return render(request, 'checkout/checkout.html', context)
 

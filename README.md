@@ -1466,4 +1466,10 @@ to cart functionality
 
 ### Imagery
 - All images use for the e-commerce website are taken from [PEXELS](https://www.pexels.com/)
- with his approval.
+ 
+## Acknowledgements
+
+***
+This website was created for submission as the Project Portfolio 5git  for the Diploma in Full Stack Software Development with the Code Institute. I would like to thank my mentor, Ronan McClelland, for his guidance, moral support, inspiration and invaluable advice.
+
+Thanks to Slack Community for answering all my questions before I asked them.
