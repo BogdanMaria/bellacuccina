@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '*y#^+e!%@$&*j7t34x^0m)q%8hqsv==krt_8+uksboms25k4gp')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['bellacuccina-ccd2ee8f8d87.herokuapp.com', '*']
 

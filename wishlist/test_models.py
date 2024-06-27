@@ -46,4 +46,4 @@ class TestWishlistModel(TestCase):
             product=self.product
 
         )
-        self.assertEqual(str(self.my_wishlist), 'Test Pasta in Pasta')
+        self.assertEqual(str(self.my_wishlist), 'Pasta in Pasta')

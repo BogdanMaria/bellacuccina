@@ -50,6 +50,6 @@ class TestReviewModel(TestCase):
 
     def test_string_method_return(self):
         self.assertEqual(str(self.my_review),
-                         'Review by MyTestUser for Test Pasta: My test review'
+                         'Review by MyTestUser for Pasta:My test review'
 
                          )

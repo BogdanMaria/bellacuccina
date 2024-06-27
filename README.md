@@ -179,6 +179,7 @@ Price ,rating, and alphabet
 24. As an unauthenticated user/customer, I want to have the option to contact the business through social media channels (such as Facebook, Instagram, or Twitter) for inquiries or support.
 25. As an unauthenticated user/customer, if I encounter a page not found error, I want to be redirected to a relevant page or provided with suggestions to navigate back to valid areas of the site.
 
+### Site Owner Stories
 - From site owner perspective:
 26. As a site owner, I want to provide secure payment options for customers, such as integrating with secure payment gateways (e.g. Stripe)
 27. As a site owner, I want to be able to add new products to the webshop, including details like product name, description, price, and images.
@@ -472,6 +473,7 @@ fields:
 </details>
 
 
+##### Back to [top](#table-of-contents)
 
 ## Agile Design
 
@@ -503,6 +505,7 @@ fields:
 
 Using Agile methodologies for my solo e-commerce project, I made steady progress by breaking tasks into smaller parts. This approach allowed me to prioritize and deliver important features step by step. With continuous feedback and adjustments, I improved the development environment, implemented crucial functionalities, and built a user-friendly e-commerce platform. Agile proved to be a valuable framework, helping me navigate complexities, achieve tangible results, and prioritize user satisfaction.
 
+##### Back to [top](#table-of-contents)
 
 ## Technologies Used
 
@@ -535,6 +538,7 @@ Using Agile methodologies for my solo e-commerce project, I made steady progress
 - [Google Fonts](https://fonts.google.com/) - for typography in project
 - [Design.com](https://www.design.com/)- for making the custom website logo
 
+##### Back to [top](#table-of-contents)
 
 ## Features
 
@@ -964,6 +968,7 @@ The Order Confirmation Thank You Form Feature serves as a confirmation and ackno
     2. Add AI powered chatbot function to enhance customer experience and support
     3. Add more types of payment options(paypal, gift-cards,crypto currencies)
 
+##### Back to [top](#table-of-contents)
 
 ## Validation
 ***
@@ -1365,6 +1370,8 @@ upload poor-quality images in our e-commerce app. This choice prioritizes visual
 <img src="docs/validation/lighthouse/register_mob.png" >
 </details>
 
+##### Back to [top](#table-of-contents)
+
 ## Testing
 ***
 
@@ -1378,6 +1385,8 @@ results for
     are contained in TESTING.md file that you can see [here.](https://github.com/BogdanMaria/bellacuccina/blob/main/TESTING.md)
 
 ***
+
+##### Back to [top](#table-of-contents)
 
 ## Bugs
 ***
@@ -1433,6 +1442,8 @@ and timesince feature was implemented
 
 ***
 
+##### Back to [top](#table-of-contents)
+
 ## Deployment
  - Deployment process and all instructions can be found
  in [DEPLOYMENT](https://github.com/BogdanMaria/bellacuccina/blob/main/DEPLOYMENT.md) file
@@ -1469,9 +1480,13 @@ to cart functionality
 ### Imagery
 - All images use for the e-commerce website are taken from [PEXELS](https://www.pexels.com/)
  
+ ##### Back to [top](#table-of-contents)
+
 ## Acknowledgements
 
 ***
 This website was created for submission as the Project Portfolio 5git  for the Diploma in Full Stack Software Development with the Code Institute. I would like to thank my mentor, Ronan McClelland, for his guidance, moral support, inspiration and invaluable advice.
 
 Thanks to Slack Community for answering all my questions before I asked them.
+
+##### Back to [top](#table-of-contents)

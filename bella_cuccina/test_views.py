@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from core import urls
+from bella_cuccina import urls
 from .views import handler500, handler403
 
 

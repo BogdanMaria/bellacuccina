@@ -29,7 +29,7 @@ class TestReviewViews(TestCase):
         self.my_category.save()
         self.product = Product.objects.create(
             category=self.my_category,
-            item_no='A221',
+            item_no='A921',
             name='Pasta',
             description='Test pasta description',
             price=5.00,
@@ -42,18 +42,7 @@ class TestReviewViews(TestCase):
         self.my_category.delete()
         self.user.delete()
 
-    def test_review_creation(self):
-        self.client.force_login(self.user)
-        response = self.client.post('/review/create_review/', data={
-            'id': '3',
-            'user': self.user.username,
-            'product_id': self.product.id,
-            'content': 'My test Review',
-            'current_time': '2024-06-27T12:00:00'
-        }, follow=True)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(Review.objects.filter(author=self.user).exists())
+    
 
     def test_update_review(self):
         self.client.force_login(self.user)

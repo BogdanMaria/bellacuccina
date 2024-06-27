@@ -217,3 +217,5 @@ your settings.py file.
 5. Change the current working directory to the one where you want the cloned directory
 6. Type git clone and paste the URL from the clipboard ($ git clone <span>https://</span>github.com/YOUR-USERNAME/YOUR-REPOSITORY)
 7. Press Enter to create your local clone
+
+Return to [README](https://github.com/BogdanMaria/bellacuccina/blob/main/README.md) document.
