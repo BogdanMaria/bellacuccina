@@ -44,10 +44,7 @@
 9. [Bugs](#bugs)
 
 10. [Deployment](#deployment)
-    1. [Heroku](#heroku)
-    2. [AWS][#aws]
-    2. [Forking GitHub Repo](#forking-the-github-repository)
-    3. [Clone a GitHub Repo](#clone-a-github-repository)
+
 12. [Credits](#credits)
     1. [Code](#code)
     2. [Tutorials](#tutorials)
@@ -1380,6 +1377,7 @@ results for
 
     are contained in TESTING.md file that you can see [here.](https://github.com/BogdanMaria/bellacuccina/blob/main/TESTING.md)
 
+***
 
 ## Bugs
 ***
@@ -1429,3 +1427,43 @@ Solution:
 time posted field was changed to:
 time_posted = models.DateTimeField(auto_now_add=True)
 and timesince feature was implemented
+
+
+***
+
+***
+
+## Deployment
+ - Deployment process and all instructions can be found
+ in [DEPLOYMENT](https://github.com/BogdanMaria/bellacuccina/blob/main/DEPLOYMENT.md) file
+
+***
+
+
+## Credits
+
+
+### Code
+
+- code for javascript validation of quantity input field was taken and adjusted to project needs from:
+ https://djangocentral.com/django-ajax-with-jquery/
+
+- code for custom toast message is taken from "Boutique Ado walkthrough project"
+
+- code for product reviews was adjusted after reviewing https://dontrepeatyourself.org/post/django-todo-app-with-ajax-and-jquery/
+
+- code for product detail page was taken and adjusted for project needs from :  https://startbootstrap.com/template/shop-item
+
+- code for all products page was taken and adjusted for project needs from: https://bbbootstrap.com/
+
+### Tutorials
+
+- [This](https://www.youtube.com/watch?v=ijM6QFVrhSY) tutorial helped me understand and implement ajax add
+to cart functionality
+
+- [This](https://www.youtube.com/watch?v=kD2vWOZFFcw&t=3s) tutorial helped me understand further implementation of ajax calls.
+
+
+### Imagery
+- All images use for the e-commerce website are taken from [PEXELS](https://www.pexels.com/)
+ with his approval.
