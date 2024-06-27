@@ -80,7 +80,7 @@ will be needed for heroku deployment
     * Navigate and Click "Services" in the top left-hand corner of the landing page, click on "Storage" then click "S3."
     * Navigate and Click "Create bucket."
     * Give the bucket a unique name:
-        * Will form part of the URL (in the case of this project, I called the S3 bucket pp5-blade)
+        * Will form part of the URL (in the case of this project, I called the S3 bucket bellacuccina)
     * Select the nearest location:
         * My case EU (Ireland) eu-west-1.
     * Under the "Object Ownership" section, select "ACLS enabled"
