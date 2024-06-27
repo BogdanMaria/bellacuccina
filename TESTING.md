@@ -422,4 +422,6 @@ User types partially correct page address of project | 404 error page loads  | W
 
 ## Automated testing
 
-Automated testing was performed using the built-in "unittest" module from Python, which seamlessly integrates with Django's unit testing framework. Test cases were created to cover different aspects of the application's functionality. The coverage tool was utilized to generate reports, providing insights into the code coverage achieved by the tests. 
+Automated testing was performed using the built-in "unittest" module from Python, which seamlessly integrates with Django's unit testing framework. Test cases were created to cover different aspects of the application's functionality. The coverage tool was utilized to generate reports, providing insights into the code coverage achieved by the tests.
+
+<img src="docs/unittest/unittest.png">
