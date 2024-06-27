@@ -27,20 +27,17 @@ class TestWishlistView(TestCase):
             name='Savage',
             notes='test notes',
             slug='testslug',
-            friendly_name='Hunter knife'
+            friendly_name='Pasta'
         )
         self.my_category.save()
 
         self.product = Product.objects.create(
             category=self.my_category,
             item_no='A221',
-            name='Test Hunter',
-            description='Test knife description',
-            price=230.00,
-            bladelength=10,
-            handlematerial='Wood',
-            blade='Steel'
-
+            name='Test pasta',
+            description='Test pasta description',
+            price=5.00,
+            weight=500,
         )
 
     def tearDown(self):
@@ -87,25 +84,31 @@ class TestAddingToWishlist(TestCase):
             name='Savage',
             notes='test notes',
             slug='testslug',
-            friendly_name='Hunter knife'
+            friendly_name='Pasta'
         )
         self.my_category.save()
 
         self.product = Product.objects.create(
             category=self.my_category,
             item_no='A221',
-            name='Test Hunter',
-            description='Test knife description',
-            price=230.00,
-            bladelength=10,
-            handlematerial='Wood',
-            blade='Steel',
+            name='Test Pasta',
+            description='Test pasta description',
+            price=5.00,
+            weight=500,
             id=23,
         )
+        self.product.save()
 
-    def test_adding_to_wishlist(self):
+    def test_removing_from_wishlist(self):
         self.client.login(username='MyTestUser', password='mypass79')
-        response = self.client.post('/wishlist/add_to_wishlist/', data={'product': 'self.product'},follow=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(Wishlist.objects.count(), 0)
-        # self.assertTrue(Wishlist.objects.filter(id=23).exists())s
+        if self.client._login:
+            print("User is logged in")
+        else:
+            print("User is not logged in")
+
+        print(f"Product ID: {self.product.id}")
+        wishlist_item = Wishlist.objects.create(user=self.user, product_id=23)
+        wishlist_item_id = wishlist_item.id
+        response = self.client.post('/wishlist/remove_from_wishlist/', data={'item-id': wishlist_item_id})
+        print(f"Wishlist count: {Wishlist.objects.count()}")
+        self.assertEqual(response.status_code, 302)
