@@ -194,3 +194,26 @@ your settings.py file.
 4. Find your github repository by name and connect
 
 5. At the bottom of the page choose either automatic deployment manual deployment(deploy by branch) choose an option and DEPLOY the project
+
+
+
+***
+
+
+### Forking the GitHub Repository
+
+1. Login or Signup to [Github](https://github.com/)
+2. Navigate to  the GitHub repository link https://github.com/BogdanMaria/bellacuccina
+3. Click on the Fork button in the top right corner
+4. Copy of the repository will be in your own GitHub account.
+
+
+### Clone a GitHub Repo
+
+1. Go to the GitHub repository  https://github.com/BogdanMaria/bellacuccina
+2. Locate the Code button above the list of files (next to 'Add file') and click it
+3. choose a preferred cloning option by selecting either HTTPS or GitHub CLI.
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone <span>https://</span>github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+7. Press Enter to create your local clone
