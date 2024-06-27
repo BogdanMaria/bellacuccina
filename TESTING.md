@@ -10,6 +10,11 @@
 4. [Automated Testing](#automated-testing)
 
 
+***
+## Device testing
+***
+
+- The project was thoroughly tested on multiple devices both during the development phase and after its completion.
 
 
 ## Manual testing of user stories
@@ -410,3 +415,5 @@ Negative  or boundary test case:
 ------------ | ------------ | ------------ |
 User clicks on a footer facebook link (and page is under maintenance at the moment) | 404 error page loads | WAS |
 User types partially correct page address of project | 404 error page loads  | WAS |
+
+

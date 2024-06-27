@@ -403,15 +403,15 @@ fields:
 </details>
 
 <details><summary>Profile</summary>
-<img src="docs/wireframes/blog-page.png">
+<img src="docs/wireframes/Profile.png">
 </details>
 
 <details><summary>Add product</summary>
-<img src="docs/wireframes/blog-page.png">
+<img src="docs/wireframes/Add product.png">
 </details>
 
 <details><summary>Authentication pages</summary>
-<img src="docs/wireframes/blog-page.png">
+<img src="docs/wireframes/Authentication.png">
 </details>
 
 
@@ -453,15 +453,15 @@ fields:
 </details>
 
 <details><summary>Profile</summary>
-<img src="docs/wireframes/blog-page.png">
+<img src="docs/wireframes/Profile_mob.png">
 </details>
 
 <details><summary>Add product</summary>
-<img src="docs/wireframes/blog-page.png">
+<img src="docs/wireframes/add prodct mobile.png">
 </details>
 
 <details><summary>Authentication pages</summary>
-<img src="docs/wireframes/blog-page.png">
+<img src="docs/wireframes/Authentication_mob.png">
 </details>
 
 
@@ -1368,3 +1368,63 @@ upload poor-quality images in our e-commerce app. This choice prioritizes visual
 <img src="docs/validation/lighthouse/register_mob.png" >
 </details>
 
+## Testing
+***
+
+- Knowledge flow was tested during and post development and all
+results for
+    - Device Testing
+    - Browser Compatibility
+    - Manual Testing
+    - Automated Testing
+
+    are contained in TESTING.md file that you can see [here.](https://github.com/BogdanMaria/bellacuccina/blob/main/TESTING.md)
+
+## Bugs
+***
+- During the development of this project those Bugs are found and documented:
+
+
+1. Stripe cache_checkout_data typo
+Describe the Bug:
+Trying to complete payment with sending metadata (for user to save delivery info to his profile), I was getting a bad request in a terminal and stripe dashboard.so payment wasn't going trough
+
+Solution:
+after going through code couple of times ,typo was discovered ('mtadata' instead od metadata)
+
+2. Cart item count indicator not updating on click
+Describe the Bug:
+Test indicator of how many products are in the bag in the navbar wasn't updating in the desktop view while it was updating
+in mobile view
+
+Solution:
+after a few min of research, I found out that the mobile view counter was wrapped in a class that was receiving info after successful ajax call while the desktop code wasn't wrapped in the same class. after updating the class of wrapper in desktop view bug was resolved
+
+3. Wishlist bug
+Describe the Bug:
+When on the wishlist page and the user is adding a product from a wishlist to the shopping card
+since adding a product is done with ajax call I was inserting a success message to the success toast , when a user was clicking a delete from wishlist button same message like adding to cart was popping out in a delete modal
+
+Solution:
+After careful debugging error was found where content of a success toast and delete from wishlist modal had the same class so ajax call was overriding a Django message. upon changing the class on the delete modal desired functionality was there.
+
+5. No value for update shopping cart product quantity
+Describe the Bug:
+When user doesn't provide value to update the quantity of a product on the shopping cart page
+django was throwing Value.
+
+Solution:
+after quick research solution was found by adding:
+quantity = int(request.POST.get('quantity') or 0) to update view and if value wasn't provided since this
+could be done intentionally value will be set to zero (0)
+
+6. Review model wrong field
+Describe the Bug:
+while trying to implement timesince feature to product reviews
+The "time posted" review model field was given value :"timeField" and the feature couldn't be implemented without
+overriding model field that was unnecessary.
+
+Solution:
+time posted field was changed to:
+time_posted = models.DateTimeField(auto_now_add=True)
+and timesince feature was implemented
