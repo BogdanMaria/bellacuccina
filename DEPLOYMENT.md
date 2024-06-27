@@ -30,6 +30,7 @@
 
     - Copy database Url cause its needed for heroku:
 
+***
 
 ### Heroku Initial
  - Initial steps: Few things need to be prepared before initiating deployment to Heroku
@@ -47,6 +48,7 @@
         - SECRET_KEY variable  into the SECRET_KEY environment variable.
         - add DISABLE_COLLECTSTATIC variable with value of 1 (for initial deployment, later this variable can be removed)
 
+***
 
 ### Stripe payment gateway
 
@@ -67,6 +69,8 @@ add endpoint
 
 - Add those keys as env variables to your env.py file and settings.py file while later those values
 will be needed for heroku deployment
+
+***
 
 ### AWS (S3 bucket):
 
@@ -173,3 +177,20 @@ will be needed for heroku deployment
         * Take note of the "Access key ID" and "Secret access key" as these will be needed to connect to the S3 bucket.
         * Navigate and Click "Download .csv" to download the credentials.
         * Navigate and Click "Close."
+
+4. Connect S3 Bucket to Project by adding code to
+your settings.py file.
+
+***
+
+### Finish Heroku configuration for deployment
+
+1. Add  config. variables to heroku
+
+2. Select Deploy option from the heroku dashboard 'tabs'
+
+3. From Deployment method section choose Connect to GitHub and click on it
+
+4. Find your github repository by name and connect
+
+5. At the bottom of the page choose either automatic deployment manual deployment(deploy by branch) choose an option and DEPLOY the project
