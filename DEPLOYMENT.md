@@ -52,8 +52,19 @@
 
 - Create an account or login  to  [Stripe](https://dashboard.stripe.com/)
 - Navigate to home tab
-- under developers section copy the values of:
+- Under developers section copy the values of:
  `SECRET_KEY ` and `PUBLIC_KEY`
+ - Navigate to developer section of stripe dashboard
+and Click on the `webhooks` tab to add an endpoint
+
+- Create a webhook with url of deployed project in this format
+https://yourwebsite.com/checkout/wh/
+
+- Choose events the webhook will receive(payment intent events) and
+add endpoint
+
+- Ensure your webhook is working by doing test with various events
+
 - Add those keys as env variables to your env.py file and settings.py file while later those values
 will be needed for heroku deployment
 
