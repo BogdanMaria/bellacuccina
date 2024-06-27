@@ -247,7 +247,7 @@ with review form, and full CRUD functionality
 
 ## Database
 ***
-
+![Datbase](docs/diagram.png)
 
 ### Data Models
 
@@ -481,12 +481,7 @@ fields:
 
 - For this project Agile principles and design was implemented from a start since this was the 2nd time in my development career that im implementing agile. While process was familiar, plan was set from beginning and it was adjusted along the way. Drawing from my previous experience, I knew that Agile would empower me to embrace change and prioritize tasks efficiently, ensuring that I consistently delivered incremental value to my project.I leveraged techniques such as user stories,kanban boards an milestones to maintain a clear project vision.This time kanban board are constructed by iterations(sprints)This iterative development cycle gave mae a regular chance to review and try to refine my work.Overall, learning and implementing Agile as a solo developer working on my e-commerce project has been a highly rewarding experience.By implementing Agile principles and design, I was confident in delivering a high-quality and user-focused e-commerce solution.
 
-### Epics(Milestones)
-- By effectively leveraging GitHub's 'Milestones' feature and thoughtfully connecting user stories to their corresponding tasks.
 
-<details><summary>See epics</summary>
-<img src="">
-</details>
 
 ### User stories
 
@@ -502,6 +497,7 @@ fields:
 <img src="docs/agile/user_story_finished.png">
 </details>
 
+All user stories can be found here [GitHub User Stories](https://github.com/users/BogdanMaria/projects/5)
 
 Using Agile methodologies for my solo e-commerce project, I made steady progress by breaking tasks into smaller parts. This approach allowed me to prioritize and deliver important features step by step. With continuous feedback and adjustments, I improved the development environment, implemented crucial functionalities, and built a user-friendly e-commerce platform. Agile proved to be a valuable framework, helping me navigate complexities, achieve tangible results, and prioritize user satisfaction.
 
