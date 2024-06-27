@@ -19,6 +19,12 @@ body {
   height: 70px;
 }
 
+.user-name{
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+
 .navbar{
   background-color: #C0C0AA !important;
 }
