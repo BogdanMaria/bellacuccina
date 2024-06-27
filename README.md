@@ -1380,6 +1380,7 @@ results for
 
     are contained in TESTING.md file that you can see [here.](https://github.com/BogdanMaria/bellacuccina/blob/main/TESTING.md)
 
+
 ## Bugs
 ***
 - During the development of this project those Bugs are found and documented:

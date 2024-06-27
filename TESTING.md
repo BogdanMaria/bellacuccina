@@ -16,6 +16,9 @@
 
 - The project was thoroughly tested on multiple devices both during the development phase and after its completion.
 
+## Browser compatibility
+
+- To ensure browser compatibility for my e-commerce app, I conducted thorough testing on Chrome, Opera, and Firefox. I verified that all major features, such as product listings, shopping cart, and payment gateways, functioned correctly across these browsers. I also ensured adherence to HTML, CSS, and JavaScript standards recommended by W3C. Additionally, I tested the app's responsiveness on various devices to guarantee a consistent user experience.Regular updates and testing on the latest browser versions were performed to maintain compatibility over.
 
 ## Manual testing of user stories
 ***
