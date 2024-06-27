@@ -1,7 +1,7 @@
 function appendReview(res) {
     var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
     var now = new Date();
-    const currentTime = now.getHours() + ':' + now.getMinutes().toString().padStart(2, '0')
+    const currentTime = now.getHours() + ':' + now.getMinutes().toString().padStart(2, '0');
     $('.commented-section').append(`
          <div class="modal fade review" tabindex="-1" id="modal_${res.id}">
     <div class="modal-dialog custom-modal-dialog ">
@@ -67,7 +67,6 @@ function addDeleteUrl() {
 }
 
 
-//
 $(document).ready(function () {
 
     addDeleteUrl();

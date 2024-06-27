@@ -4,7 +4,7 @@
 ![Mockup image](docs/ami_responsive.png)
 
 
-[View live website]()
+[View live website](https://bellacuccina-ccd2ee8f8d87.herokuapp.com/)
 
 ## Table of Contents
 0. [About](#about)
@@ -1051,6 +1051,23 @@ The Order Confirmation Thank You Form Feature serves as a confirmation and ackno
 <details><summary>500 error</summary>
 <img src="docs/validation/html_validator/500_html.png" width="800" >
 </details>
+
+### Javascript
+- [JShint](https://jshint.com/) was used to validate custom script file
+- JS files are passing validator without errors
+
+   <details><summary>Js files</summary>
+
+    <details><summary>main.js</summary>
+    <img src="docs/validation/javascript/main_js.png" width="800" >
+    </details>
+
+    <details><summary>reviews.js</summary>
+    <img src="docs/validation/javascript/reviews_js.png" width="800" >
+    </details>
+
+
+    </details>
 
 ### Python
 - [CI Python Linter](https://pep8ci.herokuapp.com/) to check  Python code for validity and conventions
