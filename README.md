@@ -1,7 +1,7 @@
 # PP5 UNDER DEVELOPMENT
 (Developer: Bogdan Maria)
 
-![Mockup image]()
+![Mockup image](docs/ami_responsive.png)
 
 
 [View live website]()

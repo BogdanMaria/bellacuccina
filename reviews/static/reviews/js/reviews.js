@@ -1,7 +1,6 @@
 function appendReview(res) {
     var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
     var now = new Date();
-    // var currentDate = now.toDateString();
     const currentTime = now.getHours() + ':' + now.getMinutes().toString().padStart(2, '0')
     $('.commented-section').append(`
          <div class="modal fade review" tabindex="-1" id="modal_${res.id}">
@@ -182,10 +181,3 @@ $(document).ready(function () {
     });
 
 });
-
-
-function updateTimestamp(){
-
-    // $('.done').val('yesss')
-    console.log('updaaaating');
-}
