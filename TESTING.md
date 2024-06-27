@@ -420,3 +420,8 @@ User clicks on a footer facebook link (and page is under maintenance at the mome
 User types partially correct page address of project | 404 error page loads  | WAS |
 
 
+## Automated testing
+
+Automated testing was performed using the built-in "unittest" module from Python, which seamlessly integrates with Django's unit testing framework. Test cases were created to cover different aspects of the application's functionality. The coverage tool was utilized to generate reports, providing insights into the code coverage achieved by the tests. The results of the testing and code coverage can be found below.
+
+- Whole  project:

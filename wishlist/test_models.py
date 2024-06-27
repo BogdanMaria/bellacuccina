@@ -6,7 +6,7 @@ from products.models import Product, Category
 from django.contrib.auth.models import User
 
 
-class TestWishlisttModel(TestCase):
+class TestWishlistModel(TestCase):
 
     @classmethod
     def setUp(self):
@@ -21,21 +21,19 @@ class TestWishlisttModel(TestCase):
         )
         self.user.save()
         self.my_category = Category.objects.create(
-            name='Savage',
+            name='Pasta',
             notes='test notes',
             slug='testslug',
-            friendly_name='Hunter knife'
+            friendly_name='Pasta'
         )
         self.my_category.save()
         self.product = Product.objects.create(
             category=self.my_category,
             item_no='A221',
-            name='Test Hunter',
-            description='Test knife description',
-            price=230.00,
-            bladelength=10,
-            handlematerial='Wood',
-            blade='Steel'
+            name='Pasta',
+            description='Test pasta description',
+            price=5.00,
+            weight=500,
 
         )
 
@@ -48,4 +46,4 @@ class TestWishlisttModel(TestCase):
             product=self.product
 
         )
-        self.assertEqual(str(self.my_wishlist), 'Test Hunter in Savage')
+        self.assertEqual(str(self.my_wishlist), 'Test Pasta in Pasta')
