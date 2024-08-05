@@ -29,7 +29,7 @@ def cache_checkout_data(request):
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request,
-                        'Sorry we cant process your payment at the moment\
+                       'Sorry we cant process your payment at the moment\
                         plaease try later!')
         return HttpResponse(status=400)
 
@@ -93,7 +93,7 @@ def store_checkout(request):
 
         current_cart = cart_content(request)
         total = current_cart['total']
-        stripe_total = round(total * 100)
+        stripe_total = round(total*100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
