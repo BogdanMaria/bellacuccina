@@ -163,15 +163,6 @@
 
     <div class="row">
         <div class="col-12 col-md-4 text-md-left">
-            <p class="mb-0 text-black font-weight-bold p-md-l-3">Delivery Cost:</p>
-        </div>
-        <div class="col-12 col-md-8 text-md-right">
-            <p class="mb-0 p-md-r-3">${{ order.delivery_cost }}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 col-md-4 text-md-left">
             <p class="mb-0 text-black font-weight-bold p-md-l-3">Grand Total:</p>
         </div>
         <div class="col-12 col-md-8 text-md-right mb-4">
@@ -187,9 +178,8 @@
 </div>
 
 <div class="col-12 text-center my-4">
-    <a href="" class=" text-center rounded-0 mt-2">
-        <span class="icon"><i class="fa-regular fa-circle-left"></i></span>
-        <span class="text-uppercase">Home</span>
+    <a href="{% url 'products:store_products'%}" class="btn btn-dark">
+        <i class="bi bi-backspace-fill"></i> Back to shop
     </a>
     {% if user.is_authenticated %}
     <a href="{% url 'customer_profile:profile' %}" class=" text-center  btn btn-success">
@@ -201,10 +191,4 @@
     </a>
     {% endif %}
 </div>
-
-<!-- <div class="row">
-    <div class="col-12 col-lg-7 text-right">
-
-    </div>
-</div> -->
 {% endblock %}

@@ -8,6 +8,7 @@
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var checkoutHeader = document.getElementById("check");
+console.log(clientSecret);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
@@ -86,7 +87,7 @@ form.addEventListener('submit', function(ev) {
         'save_info': saveInfo,
 
     };
-    var url = '/checkout/cache_checkout_data/';
+    var url ='/checkout/cache_checkout_data/';
 
     $.post(url,postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
@@ -184,7 +185,7 @@ form.addEventListener('submit', function(ev) {
 
 
 
-    }).fail(function(){
+    }).fail(function () {
 
         // reload after error, error is in django messages
 
