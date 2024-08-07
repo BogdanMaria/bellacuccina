@@ -5,10 +5,11 @@
     https://stripe.com/docs/stripe-js
 */
 
-var stripePublicKey = $('#stripe_public_key').text().slice(1, -1);
-var clientSecret = $('#stripe_secret_key').text().slice(1, -1);
+var stripePublic_key = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var checkoutHeader = document.getElementById("check");
-var stripe = Stripe(stripePublicKey);
+
+var stripe = Stripe(stripePublic_key);
 var elements = stripe.elements();
 var style = {
     base: {
