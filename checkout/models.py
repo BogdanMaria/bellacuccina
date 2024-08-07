@@ -9,7 +9,7 @@ from customer_profile.models import CustomerProfile
 
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=32, null=False, editable=False)
+    order_number = models.CharField(max_length=34, null=False, editable=False)
     user_profile = models.ForeignKey(CustomerProfile,
                                      on_delete=models.SET_NULL, null=True,
                                      blank=True, related_name='orders')
@@ -76,4 +76,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'ITEM_NO {self.product.item_no} on order {self.order.order_number}'
+        return self.order_number
