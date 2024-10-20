@@ -471,6 +471,7 @@ fields:
 <details><summary>Contact & about</summary>
 <img src="docs/wireframes/About_mobile.png">
 </details>
+</details>
 
 
 ##### Back to [top](#table-of-contents)
