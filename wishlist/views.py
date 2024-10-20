@@ -51,9 +51,6 @@ def remove_from_wishlist(request):
         wish_item = get_object_or_404(Wishlist, pk=item_id)
         wish_item.delete()
         messages.success(request, f'{wish_item.product.name} deleted from wishlist')
-        # Update the wishlist count in session
-        # wishlist_count = Wishlist.objects.filter(user=request.user).count()
-        # request.session['wishlist_count'] = wishlist_count
     return HttpResponseRedirect(reverse('wishlist:wishlist'))
 
 
